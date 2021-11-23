@@ -6,11 +6,14 @@ namespace Projet_progsys
 {
     class Interface
     {
-        private string dest;
-
         public void SetSource(string InputSrc)
         {
             Console.WriteLine(InputSrc);
+        }
+
+        public void SetDestination(string InputDst)
+        {
+            Console.WriteLine(InputDst);
         }
     }
 }
