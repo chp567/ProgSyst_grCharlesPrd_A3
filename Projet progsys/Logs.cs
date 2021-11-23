@@ -61,15 +61,31 @@ namespace Projet_progsys
 
         static void Main()
         {
-            //Logs log1 = new Logs();
-            //log1.LogD();
-            //log1.LogI();
+            _Language l1 = new _Language();
+            l1.SetLanguage();
+            int language = l1.GetLanguage();
+            string InputSrc = "";
+                if (language == 1)
+                {
+                InputSrc = "Insérez le dossier source";
+                }
+                else if(language == 2)
+                {
+                InputSrc = "Insert the source directory";
+                }
+
+            Interface int1 = new Interface();
+            int1.SetSource(InputSrc);
+
             string src = "C:/Users/Hanton/Documents/GitHub/Projet_Web/ProgSyst_grCharlesPrd_A3/Projet progsys";
             string dest = "C:/Users/Hanton/Documents/GitHub/Projet_Web/ProgSyst_grCharlesPrd_A3/Projet progsys";
             dest = @"" + dest;
             //Console.WriteLine(dest);
-            Data copy1 = new Data();
-            copy1.Copy(src, dest);
+            //Data copy1 = new Data();
+            //copy1.Copy(src, dest);
+            //Logs log1 = new Logs();
+            //log1.LogD();
+            //log1.LogI();
         }
     }
 
