@@ -7,51 +7,54 @@ namespace Projet_progsys
 {
     class Logs
     {
-        void LogD() //daily log
+        public void LogD(string name, string filenamesource, string filenametarget, long fi) //daily log
         {
             string log;
             //creation of the variable logs containing the log details
             log = $"{Environment.NewLine}"
                 +"{"
-                + $"{Environment.NewLine} 'Name':"
+                + $"{Environment.NewLine} 'Name': " + name 
                 + ","
-                + $"{Environment.NewLine} 'FileSource':"
+                + $"{Environment.NewLine} 'FileSource': " + filenamesource
                 + ","
-                + $"{Environment.NewLine} 'FileTarget':"
+                + $"{Environment.NewLine} 'FileTarget': " + filenametarget
                 + ","
-                + $"{Environment.NewLine} 'destPath':"
+                + $"{Environment.NewLine} 'destPath': '' "
                 + ","
-                + $"{Environment.NewLine} 'FileSize':"
+                + $"{Environment.NewLine} 'FileSize': " + fi
                 + ","
-                + $"{Environment.NewLine} 'FileTransferTime':"
+                + $"{Environment.NewLine} 'FileTransferTime': "
                 + ","
-                + $"{Environment.NewLine} 'time':"
+                + $"{Environment.NewLine} 'time': " 
+                + ","
                 + $"{Environment.NewLine}"
                 + "},";
             //calling the file function to write in the log file
             File.AppendAllText("C:/Users/Hanton/Desktop/Tout/log.json", log); 
         }
 
-        void LogI() //In real time log
+        public void LogI() //In real time log
         {
             string log;
             //creation of the variable logs containing the log details
             log = $"{Environment.NewLine}"
                 + "{"
-                + $"{Environment.NewLine} 'Name':"
+                + $"{Environment.NewLine} 'Name': "
                 + ","
-                + $"{Environment.NewLine} 'FileSource':"
+                + $"{Environment.NewLine} 'FileSource': "
                 + ","
-                + $"{Environment.NewLine} 'FileTarget':"
+                + $"{Environment.NewLine} 'FileTarget': "
                 + ","
-                + $"{Environment.NewLine} 'State':"
+                + $"{Environment.NewLine} 'State': "
                 + ","
-                + $"{Environment.NewLine} 'TotalFilesToCopy':"
+                + $"{Environment.NewLine} 'TotalFilesToCopy': "
                 + ","
-                + $"{Environment.NewLine} 'TotalFilesSize':"
+                + $"{Environment.NewLine} 'TotalFilesSize': "
                 + ","
-                + $"{Environment.NewLine} 'NbFilesLeftToDo':" 
-                + $"{Environment.NewLine} 'Progressiob': "
+                + $"{Environment.NewLine} 'NbFilesLeftToDo': "
+                + $","
+                + $"{Environment.NewLine} 'Progression': "
+                + $","
                 + $"{Environment.NewLine}"
                 + "},";
              //calling the file function to write in the log file
@@ -102,33 +105,48 @@ namespace Projet_progsys
             Data copy1 = new Data();
             string src;
             string dest;
+            string name = "";
 
             //setting up the saves
             Console.WriteLine($"{Environment.NewLine}1");
+            name = "Save 1";
+            inp1.SetName(name);
             inp1.SetSource(InputSrc);
             inp1.Source();
             inp1.SetDestination(InputDest);
             inp1.Destination();
 
+            inp2.SetName("Save 2");
             Console.WriteLine("2");
+            name = "Save 2";
+            inp2.SetName(name);
             inp2.SetSource(InputSrc);
             inp2.Source();
             inp2.SetDestination(InputDest);
             inp2.Destination();
 
+            inp3.SetName("Save 3");
             Console.WriteLine("3");
+            name = "Save 3";
+            inp3.SetName(name);
             inp3.SetSource(InputSrc);
             inp3.Source();
             inp3.SetDestination(InputDest);
             inp3.Destination();
 
+            inp4.SetName("Save 4");
             Console.WriteLine("4");
+            name = "Save 4";
+            inp4.SetName(name);
             inp4.SetSource(InputSrc);
             inp4.Source();
             inp4.SetDestination(InputDest);
             inp4.Destination();
 
+            inp5.SetName("Save 5");
             Console.WriteLine("5");
+            name = "Save 5";
+            inp5.SetName(name);
             inp5.SetSource(InputSrc);
             inp5.Source();
             inp5.SetDestination(InputDest);
@@ -143,35 +161,40 @@ namespace Projet_progsys
                     src = inp1.GetSource();
                     dest = inp1.GetDest();
                     dest = @"" + dest;
-                    copy1.Copy(src, dest);
+                    name = inp1.GetName();
+                    copy1.Copy(src, dest, name);
                 }
                 else if (work == 2)
                 {
                     src = inp2.GetSource();
                     dest = inp2.GetDest();
                     dest = @"" + dest;
-                    copy1.Copy(src, dest);
+                    name = inp2.GetName();
+                    copy1.Copy(src, dest, name);
                 }
                 else if (work == 3)
                 {
                     src = inp3.GetSource();
                     dest = inp3.GetDest();
                     dest = @"" + dest;
-                    copy1.Copy(src, dest);
+                    name = inp3.GetName();
+                    copy1.Copy(src, dest, name);
                 }
                 else if (work == 4)
                 {
                     src = inp4.GetSource();
                     dest = inp4.GetDest();
                     dest = @"" + dest;
-                    copy1.Copy(src, dest);
+                    name = inp4.GetName();
+                    copy1.Copy(src, dest, name);
                 }
                 else if (work == 5)
                 {
                     src = inp5.GetSource();
                     dest = inp5.GetDest();
                     dest = @"" + dest;
-                    copy1.Copy(src, dest);
+                    name = inp1.GetName();
+                    copy1.Copy(src, dest, name);
                 }
             }
             else if (SaveType == 2)
@@ -179,32 +202,34 @@ namespace Projet_progsys
                 src = inp1.GetSource();
                 dest = inp1.GetDest();
                 dest = @"" + dest;
-                copy1.Copy(src, dest);
+                name = inp1.GetName();
+                copy1.Copy(src, dest, name);
 
                 src = inp2.GetSource();
                 dest = inp2.GetDest();
                 dest = @"" + dest;
-                copy1.Copy(src, dest);
+                name = inp2.GetName();
+                copy1.Copy(src, dest, name);
 
                 src = inp3.GetSource();
                 dest = inp3.GetDest();
                 dest = @"" + dest;
-                copy1.Copy(src, dest);
+                name = inp3.GetName();
+                copy1.Copy(src, dest, name);
 
                 src = inp4.GetSource();
                 dest = inp4.GetDest();
                 dest = @"" + dest;
-                copy1.Copy(src, dest);
+                name = inp4.GetName();
+                copy1.Copy(src, dest, name);
 
                 src = inp5.GetSource();
                 dest = inp5.GetDest();
-                dest = @"" + dest;               
-                copy1.Copy(src, dest);
+                dest = @"" + dest;
+                name = inp5.GetName();
+                copy1.Copy(src, dest, name);
             }
 
-            //Logs log1 = new Logs();
-            //log1.LogD();
-            //log1.LogI();
         }
     }
 

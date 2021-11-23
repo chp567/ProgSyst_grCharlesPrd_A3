@@ -6,8 +6,9 @@ namespace Projet_progsys
 {
     class _Inputs : Interface
     {
-        string src;
-        string dest;
+        private string src;
+        private string dest;
+        private string name;
 
         public string Source()
         {
@@ -31,6 +32,17 @@ namespace Projet_progsys
         public string GetDest()
         {
             return this.dest;
+        }
+        
+        public string SetName(string name)
+        {
+            this.name = name;
+            return this.name;
+        }
+
+        public string GetName()
+        {
+            return this.name;
         }
     }
 }
