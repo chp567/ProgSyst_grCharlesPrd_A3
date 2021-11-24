@@ -27,19 +27,20 @@ namespace Projet_progsys
                 {
                     File.Copy(newPath, newPath.Replace(src, dest), true);
                     Logs log1 = new Logs();
+                    _File file1 = new _File();
 
-                    //get the file source
-                    string filenamesource = null;
-                    filenamesource = Path.GetDirectoryName(src);
+                    string filenamesource = file1.GetFilenamesrc(newPath);
 
-                    //get the file target 
-                    string filenametarget = null;
-                    filenametarget = Path.GetDirectoryName(dest);
+                    string filenametarget = file1.GetFilenamedest(newPath.Replace(src, dest));
 
-                    //find size of the file
-                    FileInfo fi = new FileInfo(newPath);
-                    
-                    log1.LogD(name,filenamesource,filenametarget, fi.Length);
+                    long fi = file1.Getsize(newPath);
+
+                    string transferttime = file1.GetTranfertTime();
+
+                    string time = file1.Gettime();
+
+                    log1.LogD(name,filenamesource,filenametarget, fi, transferttime, time);
+
                     //log1.LogI();
                 }
             }

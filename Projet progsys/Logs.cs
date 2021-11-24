@@ -7,26 +7,26 @@ namespace Projet_progsys
 {
     class Logs
     {
-        public void LogD(string name, string filenamesource, string filenametarget, long fi) //daily log
+        public void LogD(string name, string filenamesource, string filenametarget, long fi, string transferttime, string time) //daily log
         {
             string log;
             //creation of the variable logs containing the log details
             log = $"{Environment.NewLine}"
                 +"{"
-                + $"{Environment.NewLine} 'Name': " + name 
+                + $"{Environment.NewLine} " +(char)34+ " Name " + (char)34 + ": " + (char)34 + name + (char)34 
                 + ","
-                + $"{Environment.NewLine} 'FileSource': " + filenamesource
+                + $"{Environment.NewLine} " + (char)34 + "FileSource" + (char)34 + ": " + (char)34 + filenamesource + (char)34 
                 + ","
-                + $"{Environment.NewLine} 'FileTarget': " + filenametarget
+                + $"{Environment.NewLine} " + (char)34 + "FileTarget" + (char)34 + ": " + (char)34 + filenametarget + (char)34 
                 + ","
-                + $"{Environment.NewLine} 'destPath': '' "
+                + $"{Environment.NewLine} " + (char)34 + "destPath" + (char)34 + ": '' "
                 + ","
-                + $"{Environment.NewLine} 'FileSize': " + fi
+                + $"{Environment.NewLine} " + (char)34 + "FileSize" + (char)34 + ": " + fi  
+               + ","
+                + $"{Environment.NewLine} " + (char)34 + "FileTransferTime" + (char)34 + ": " + transferttime
                 + ","
-                + $"{Environment.NewLine} 'FileTransferTime': "
-                + ","
-                + $"{Environment.NewLine} 'time': " 
-                + ","
+                + $"{Environment.NewLine} " + (char)34 + "time" + (char)34 + ": " + (char)34 + time + (char)34
+               + ","
                 + $"{Environment.NewLine}"
                 + "},";
             //calling the file function to write in the log file
@@ -62,6 +62,7 @@ namespace Projet_progsys
 
         }
 
+
         static void Main()
         {
             _Language l1 = new _Language();
@@ -79,7 +80,7 @@ namespace Projet_progsys
                 Save = "Choisissez le mode sauvegarde " +
                     $"{Environment.NewLine}1 = Sauvegarde seule" +
                     $"{Environment.NewLine}2 = Sauvegarde séquentielle";
-                WorkChoice = "Choissez le travail à effectuer";
+                WorkChoice = "Choissez le travail à effectuer (1 à 5)";
                 }
                 else if(language == 2)  //Eng
                 {
@@ -88,7 +89,7 @@ namespace Projet_progsys
                 Save = "Choose the save mode " +
                     $"{Environment.NewLine}1 = Unique save" +
                     $"{Environment.NewLine}2 = Sequential save";
-                WorkChoice = "Choose the save work you want to do";
+                WorkChoice = "Choose the save work you want to do (1 to 5)";
             }
 
             //Interface int1 = new Interface();
