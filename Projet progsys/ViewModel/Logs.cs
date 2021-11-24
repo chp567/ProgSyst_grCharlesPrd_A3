@@ -7,8 +7,8 @@ namespace Projet_progsys
 {
     class Logs
     {
-        string log;
-        string log1;
+        private string log;
+        private string log1;
         public void LogD(string name, string filenamesource, string filenametarget, long fSize, string transferttime, string time) //daily log
         {
             string log;
