@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Globalization;
+using System.Linq;
 
 namespace Projet_progsys
 {
@@ -58,6 +59,49 @@ namespace Projet_progsys
             string time = localDate.ToString();
 
             return time;
+        }
+
+        static long DirectorySize(DirectoryInfo dInfo, bool includeSubDir)
+        {
+            //calculer la taille de la source
+            long totalSize = dInfo.EnumerateFiles()
+                         .Sum(file => file.Length);
+            if (includeSubDir)
+            {
+                totalSize += dInfo.EnumerateDirectories()
+                         .Sum(dir => DirectorySize(dir, true));
+            }
+            return totalSize;
+        }
+
+        public long Getdirsize(string src)
+        {
+
+            //calculer la taille de la source
+            DirectoryInfo dInfo = new DirectoryInfo(src);
+            long sizeOfDir = DirectorySize(dInfo, true);
+            return sizeOfDir;
+        }
+
+        public int Getfilesnumber(string src)
+        {
+            int fCount = Directory.GetFiles(src, "*.*", SearchOption.AllDirectories).Length;
+            return fCount;
+        }
+
+        public int Remainingfiles(int fCount, int i)
+        {
+            int filesleft;
+            filesleft = fCount - i;
+
+            return filesleft;
+        }
+
+        public double Progression(int fCount, int i)
+        {
+            double progression;
+            progression = ((double)i / (double)fCount) * 100;
+            return progression;
         }
     }
 }

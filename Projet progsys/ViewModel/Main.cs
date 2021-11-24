@@ -1,68 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 
-
 namespace Projet_progsys
 {
-    class Logs
+    class _Main
     {
-        public void LogD(string name, string filenamesource, string filenametarget, long fi, string transferttime, string time) //daily log
-        {
-            string log;
-            //creation of the variable logs containing the log details
-            log = $"{Environment.NewLine}"
-                +"{"
-                + $"{Environment.NewLine} " +(char)34+ " Name " + (char)34 + ": " + (char)34 + name + (char)34 
-                + ","
-                + $"{Environment.NewLine} " + (char)34 + "FileSource" + (char)34 + ": " + (char)34 + filenamesource + (char)34 
-                + ","
-                + $"{Environment.NewLine} " + (char)34 + "FileTarget" + (char)34 + ": " + (char)34 + filenametarget + (char)34 
-                + ","
-                + $"{Environment.NewLine} " + (char)34 + "destPath" + (char)34 + ": '' "
-                + ","
-                + $"{Environment.NewLine} " + (char)34 + "FileSize" + (char)34 + ": " + fi  
-               + ","
-                + $"{Environment.NewLine} " + (char)34 + "FileTransferTime" + (char)34 + ": " + transferttime
-                + ","
-                + $"{Environment.NewLine} " + (char)34 + "time" + (char)34 + ": " + (char)34 + time + (char)34
-               + ","
-                + $"{Environment.NewLine}"
-                + "},";
-            //calling the file function to write in the log file
-            File.AppendAllText("C:/Users/Hanton/Desktop/Tout/log.json", log); 
-        }
-
-        public void LogI() //In real time log
-        {
-            string log;
-            //creation of the variable logs containing the log details
-            log = $"{Environment.NewLine}"
-                + "{"
-                + $"{Environment.NewLine} 'Name': "
-                + ","
-                + $"{Environment.NewLine} 'FileSource': "
-                + ","
-                + $"{Environment.NewLine} 'FileTarget': "
-                + ","
-                + $"{Environment.NewLine} 'State': "
-                + ","
-                + $"{Environment.NewLine} 'TotalFilesToCopy': "
-                + ","
-                + $"{Environment.NewLine} 'TotalFilesSize': "
-                + ","
-                + $"{Environment.NewLine} 'NbFilesLeftToDo': "
-                + $","
-                + $"{Environment.NewLine} 'Progression': "
-                + $","
-                + $"{Environment.NewLine}"
-                + "},";
-             //calling the file function to write in the log file
-             File.AppendAllText("C:/Users/Hanton/Desktop/Tout/log.json", log);
-
-        }
-
-
         static void Main()
         {
             _Language l1 = new _Language();
@@ -73,17 +18,17 @@ namespace Projet_progsys
             string Save = "";
             string WorkChoice = "";
 
-                if (language == 1)      //FR
-                {
+            if (language == 1)      //FR
+            {
                 InputSrc = "Insérez le dossier source";
                 InputDest = "Insérez le dossier de sauvegarde";
                 Save = "Choisissez le mode sauvegarde " +
                     $"{Environment.NewLine}1 = Sauvegarde seule" +
                     $"{Environment.NewLine}2 = Sauvegarde séquentielle";
                 WorkChoice = "Choissez le travail à effectuer (1 à 5)";
-                }
-                else if(language == 2)  //Eng
-                {
+            }
+            else if (language == 2)  //Eng
+            {
                 InputSrc = "Insert the source directory";
                 InputDest = "Insert the destination directory";
                 Save = "Choose the save mode " +
@@ -152,6 +97,19 @@ namespace Projet_progsys
             inp5.Source();
             inp5.SetDestination(InputDest);
             inp5.Destination();
+
+            // create the in real time log
+            string path = "C:/Users/Hanton/Desktop/Tout/logIRT.json";
+            Logs log = new Logs();
+
+            if (File.Exists(path))
+            {
+
+            }
+            else
+            {
+                log.CreateLogI(path);
+            }
 
             if (SaveType == 1)
             {
@@ -230,8 +188,6 @@ namespace Projet_progsys
                 name = inp5.GetName();
                 copy1.Copy(src, dest, name);
             }
-
         }
     }
-
 }
