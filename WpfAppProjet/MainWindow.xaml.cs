@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Projet_progsys;
 
 namespace WpfAppProjet
 {
@@ -38,17 +39,19 @@ namespace WpfAppProjet
             openFileDialog.FileName = "Folder Selection.";
             if (openFileDialog.ShowDialog() == true)
                 txtEditor_source.Text = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+            string src = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
         }
         private void btnOpenFile_dest(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Multiselect = true;
-            openFileDialog1.ValidateNames = false;
-            openFileDialog1.CheckFileExists = false;
-            openFileDialog1.CheckPathExists = true;
-            openFileDialog1.FileName = "Folder Selection.";
-            if (openFileDialog1.ShowDialog() == true)
-                txtEditor_dest.Text = System.IO.Path.GetDirectoryName(openFileDialog1.FileName);
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = true;
+            openFileDialog.ValidateNames = false;
+            openFileDialog.CheckFileExists = false;
+            openFileDialog.CheckPathExists = true;
+            openFileDialog.FileName = "Folder Selection.";
+            if (openFileDialog.ShowDialog() == true)
+                txtEditor_dest.Text = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+            string dest = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
         }
 
         private void Button_create(object sender, RoutedEventArgs e)
@@ -84,12 +87,42 @@ namespace WpfAppProjet
 
         private void Button_language_french(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("french");
+            btnOpenFile_s.Content = "Source";
+            btnOpenFile_d.Content = "Destination";
+            create_button.Content = "Créer";
+            Usave_placeholder.Content = "Sauvegarde Unique";
+            Ssave_placeholder.Content = "Sauvegarde séquentielle";
+            UPlay.Content = "Lancer";
+            UPause.Content = "Pause";
+            USTop.Content = "Stop";
+            SPlay.Content = "Lancer";
+            SPause.Content = "Pause";
+            SStop.Content = "Stop";
+            Language_placeholder.Content = "Selectionnez la langue";
+            FR.Content = "Français";
+            EN.Content = "English";
+            FR.IsEnabled = false ;
+            EN.IsEnabled = true ;
         }
 
         private void Button_language_english(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("english");
+            btnOpenFile_s.Content = "Source";
+            btnOpenFile_d.Content = "Destination";
+            create_button.Content = "Create";
+            Usave_placeholder.Content = "Unique Save";
+            Ssave_placeholder.Content = "Sequential Save";
+            UPlay.Content = "Start";
+            UPause.Content = "Pause";
+            USTop.Content = "Stop";
+            SPlay.Content = "Start";
+            SPause.Content = "Pause";
+            SStop.Content = "Stop";
+            Language_placeholder.Content = "Select your language";
+            FR.Content = "French";
+            EN.Content = "English";
+            FR.IsEnabled = true ;
+            EN.IsEnabled = false ;
         }
 
                    

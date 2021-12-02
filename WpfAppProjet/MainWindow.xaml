@@ -9,7 +9,7 @@
     <TabControl>
         <TabItem Header="Save Setup" Margin="-2,-2,-59,-20">
             <Grid Background="#FFE5E5E5">
-                <Button Content="Create" HorizontalAlignment="Left" Margin="603,82,0,0" VerticalAlignment="Top" Height="47" Width="158" Click="Button_create"/>
+                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="603,82,0,0" VerticalAlignment="Top" Height="47" Width="158" Click="Button_create"/>
 
 
                 <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="82,73,622,266"/>
@@ -23,15 +23,21 @@
         <TabItem Header="Save Worker" Margin="58,-2,-136,-19">
             <Grid Background="#FFE5E5E5">
 
-                <Label Content="Sauvegarde Unique" Grid.Column="1" HorizontalAlignment="Left" Margin="474,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Label Content="Sauvegarde Multiple" Grid.Column="1" HorizontalAlignment="Left" Margin="468,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="18"/>
-                <Button Content="LANCER" Grid.Column="1" HorizontalAlignment="Left" Margin="425,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play"/>
-                <Button Content="PAUSE" Grid.Column="1" HorizontalAlignment="Left" Margin="525,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause"/>
-                <Button Content="STOP" Grid.Column="1" HorizontalAlignment="Left" Margin="627,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop"/>
-                <Button Content="LANCER" Grid.Column="1" HorizontalAlignment="Left" Margin="425,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play"/>
-                <Button Content="PAUSE" Grid.Column="1" HorizontalAlignment="Left" Margin="526,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause"/>
-                <Button Content="STOP" Grid.Column="1" HorizontalAlignment="Left" Margin="627,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop"/>
-                <ScrollBar HorizontalAlignment="Left" Margin="353,0,0,0" VerticalAlignment="Center" Height="246" Width="21"/>
+                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="497,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="491,182,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+                <Button x:Name="UPlay" Content="Start" Grid.Column="1" HorizontalAlignment="Left" Margin="425,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play"/>
+                <Button x:Name="UPause" Content="Pause" Grid.Column="1" HorizontalAlignment="Left" Margin="525,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause"/>
+                <Button x:Name="USTop" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="627,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop"/>
+                <Button x:Name="SPlay" Content="Start" Grid.Column="1" HorizontalAlignment="Left" Margin="425,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play"/>
+                <Button x:Name="SPause" Content="Pause" Grid.Column="1" HorizontalAlignment="Left" Margin="526,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause"/>
+                <Button x:Name="SStop" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="627,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop"/>
+                <DataGrid Margin="10,27,374,10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Save Name" IsReadOnly="True" Binding="{Binding Path=Save_Name}" Width="100"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Source" IsReadOnly="True" Binding="{Binding Path=Save_Source}" Width="100"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Destination" IsReadOnly="True"  Binding="{Binding Path=Save_Dest}" Width="100"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
 
             </Grid>
         </TabItem>
@@ -42,9 +48,9 @@
                     <ColumnDefinition Width="360*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Content="Langage" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Button Content="Français" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french"/>
-                <Button Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english"/>
+                <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french"/>
+                <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False"/>
 
             </Grid>
         </TabItem>
