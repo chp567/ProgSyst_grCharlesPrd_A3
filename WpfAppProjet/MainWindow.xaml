@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfAppProjet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppProjet"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Save Setup" Margin="-2,-2,-59,-20">
+            <Grid Background="#FFE5E5E5">
+                <Separator HorizontalAlignment="Left" Margin="16,-92,0,0" VerticalAlignment="Top"/>
+                <Label Content="" HorizontalAlignment="Left" Margin="104,51,0,0" VerticalAlignment="Top"/>
+                <Button Content="Create" HorizontalAlignment="Left" Margin="603,82,0,0" VerticalAlignment="Top" Height="47" Width="158" Click="Button_Click"/>
+
+
+                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="82,73,622,266"/>
+                <TextBox x:Name="txtEditor_source" Margin="16,160,556,202" />
+
+                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="376,73,328,266"/>
+                <TextBox x:Name="txtEditor_dest" Margin="288,160,239,202" />
+
+            </Grid>
+        </TabItem>
+        
+        <TabItem Header="Save Worker" Margin="58,-2,-136,-19">
+            <ScrollBar Margin="450,0,327,0"/>
+        </TabItem>
+        <TabItem Header="Settings" Margin="135,-2,-213,-19">
+            <Grid Background="#FFE5E5E5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*"/>
+                    <ColumnDefinition Width="360*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </TabItem>
+        
+
+    </TabControl>
+
+</Window>
