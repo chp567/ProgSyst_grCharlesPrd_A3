@@ -30,7 +30,6 @@ namespace WpfAppProjet
         //to open file source and dest
         private void btnOpenFile_source(object sender, RoutedEventArgs e)
         {
-
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = true;
             openFileDialog.ValidateNames = false;
@@ -42,19 +41,24 @@ namespace WpfAppProjet
         }
         private void btnOpenFile_dest(object sender, RoutedEventArgs e)
         {
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
-            openFileDialog.ValidateNames = false;
-            openFileDialog.CheckFileExists = false;
-            openFileDialog.CheckPathExists = true;
-            openFileDialog.FileName = "Folder Selection.";
-            if (openFileDialog.ShowDialog() == true)
-                txtEditor_dest.Text = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Multiselect = true;
+            openFileDialog1.ValidateNames = false;
+            openFileDialog1.CheckFileExists = false;
+            openFileDialog1.CheckPathExists = true;
+            openFileDialog1.FileName = "Folder Selection.";
+            if (openFileDialog1.ShowDialog() == true)
+                txtEditor_dest.Text = System.IO.Path.GetDirectoryName(openFileDialog1.FileName);
         }
 
+        private void Button_create(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("create");
+        }
 
-
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("lancer");
+        }
     }
 }
