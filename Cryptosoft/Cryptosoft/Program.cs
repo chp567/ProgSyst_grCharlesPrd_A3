@@ -26,10 +26,13 @@ namespace Cryptosoft
         static void Main()
         {
             string d;
-            string word = File.ReadAllText(@"C:\Users\casse\Desktop\test.txt");
+            string chemin;
             Console.WriteLine("décalage");
             d = Console.ReadLine();
             int decalage = Int32.Parse(d);
+            Console.WriteLine("chemin du fichier");
+            chemin = Console.ReadLine();
+            string word = File.ReadAllText(@chemin);
 
             Console.WriteLine(Cesar(word, decalage));
         }

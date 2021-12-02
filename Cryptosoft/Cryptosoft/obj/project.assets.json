@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\casse\\source\\repos\\Cryptosoft\\Cryptosoft\\Cryptosoft.csproj",
+      "projectUniqueName": "C:\\Users\\casse\\Documents\\GitHub\\ProgSyst_grCharlesPrd_A3\\Cryptosoft\\Cryptosoft\\Cryptosoft.csproj",
       "projectName": "Cryptosoft",
-      "projectPath": "C:\\Users\\casse\\source\\repos\\Cryptosoft\\Cryptosoft\\Cryptosoft.csproj",
+      "projectPath": "C:\\Users\\casse\\Documents\\GitHub\\ProgSyst_grCharlesPrd_A3\\Cryptosoft\\Cryptosoft\\Cryptosoft.csproj",
       "packagesPath": "C:\\Users\\casse\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\casse\\source\\repos\\Cryptosoft\\Cryptosoft\\obj\\",
+      "outputPath": "C:\\Users\\casse\\Documents\\GitHub\\ProgSyst_grCharlesPrd_A3\\Cryptosoft\\Cryptosoft\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
