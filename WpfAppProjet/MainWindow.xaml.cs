@@ -56,9 +56,42 @@ namespace WpfAppProjet
             MessageBox.Show("create");
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_unique_play(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("lancer");
+            MessageBox.Show("uplay");
         }
+        private void Button_unique_pause(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("upause");
+        }
+        private void Button_unique_stop(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ustop");
+        }
+        private void Button_multiple_play(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("mplay");
+        }
+        private void Button_multiple_pause(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("mpause");
+        }
+        private void Button_multiple_stop(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("mstop");
+        }
+
+
+        private void Button_language_french(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("french");
+        }
+
+        private void Button_language_english(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("english");
+        }
+
+                   
     }
 }

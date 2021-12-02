@@ -42,6 +42,10 @@
                     <ColumnDefinition Width="360*"/>
                 </Grid.ColumnDefinitions>
 
+                <Label Content="Langage" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+                <Button Content="Français" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french"/>
+                <Button Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english"/>
+
             </Grid>
         </TabItem>
 
