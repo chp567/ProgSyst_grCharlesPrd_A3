@@ -12,14 +12,14 @@ namespace Projet_progsys
 
         public string Source()
         {
-            string src = Console.ReadLine();
+            string src = @"C:\Users\Hanton\Desktop\Tout\CESI\ASSOS";
             this.src = src;
             return this.src;
         }
 
         public string Destination()
         {
-            string dest = Console.ReadLine();
+            string dest = @"C:\Users\Hanton\Desktop\Tout\CESI\A1";
             this.dest = dest;
             return this.dest;
         }
@@ -34,9 +34,9 @@ namespace Projet_progsys
             return this.dest;
         }
         
-        public string SetName(string name)
+        public string SetName()
         {
-            this.name = name;
+            this.name = "Save 1";
             return this.name;
         }
 

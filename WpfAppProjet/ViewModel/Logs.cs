@@ -33,7 +33,7 @@ namespace Projet_progsys
                 + $"{Environment.NewLine}"
                 + "},";
             //calling the file function to write in the log file
-            File.AppendAllText(@"C:\Users\casse\Desktop\log.json", log); 
+            File.AppendAllText(@"C:\Users\Hanton\Desktop\Tout\log.json", log); 
         }
 
         public void CreateLogI(string path) //In real time log

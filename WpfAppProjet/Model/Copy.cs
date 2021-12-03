@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using System.Diagnostics;
 using System.Threading;
+using System.Windows;
 
 namespace Projet_progsys
 {
@@ -19,28 +20,32 @@ namespace Projet_progsys
             try
             {
                 //Now Create all of the directories
-                foreach (string dirPath in Directory.GetDirectories(""+src ,"*", SearchOption.AllDirectories))
+                foreach (string dirPath in Directory.GetDirectories(src ,"*", SearchOption.AllDirectories))
                 {
                     Directory.CreateDirectory(dirPath.Replace(src,dest));
+                    
                 }
                 //Copy all the files & Replaces any files with the same name
                 foreach (string newPath in Directory.GetFiles(src, "*.*", SearchOption.AllDirectories))
                 {
                     i++;
                     File.Copy(newPath, newPath.Replace(src, dest), true);
+                    //MessageBox.Show(newPath + "\n" + newPath.Replace(src, dest));
                     Logs log1 = new Logs();
                     _File file1 = new _File();
 
                     //daily log handling
-                    string filenamesource = file1.GetFilenamesrc(newPath);
-
-                    string filenametarget = file1.GetFilenamedest(newPath.Replace(src, dest));
+                    string filenamesource = newPath;
+                    
+                    string filenametarget = newPath.Replace(src, dest);
 
                     long fSize = file1.Getsize(newPath);
 
                     string transferttime = file1.GetTranfertTime();
 
                     string time = file1.Gettime();
+
+                    MessageBox.Show(filenamesource + "\n" + filenametarget + "\n" + fSize + "\n" + transferttime + "\n" + time);
 
                     log1.LogD(name,filenamesource,filenametarget, fSize, transferttime, time);
 
