@@ -66,6 +66,8 @@ namespace WpfAppProjet
         private void Button_unique_pause(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("upause");
+            Logs log = new Logs();
+            log.LogD("", "", "", 1000, "", "");
         }
         private void Button_unique_stop(object sender, RoutedEventArgs e)
         {
