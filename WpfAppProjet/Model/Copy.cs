@@ -45,7 +45,7 @@ namespace Projet_progsys
 
                     string time = file1.Gettime();
 
-                    MessageBox.Show(filenamesource + "\n" + filenametarget + "\n" + fSize + "\n" + transferttime + "\n" + time);
+                    //MessageBox.Show(filenamesource + "\n" + filenametarget + "\n" + fSize + "\n" + transferttime + "\n" + time);
 
                     log1.LogD(name,filenamesource,filenametarget, fSize, transferttime, time);
 

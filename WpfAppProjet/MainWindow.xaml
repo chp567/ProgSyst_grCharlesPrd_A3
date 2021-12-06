@@ -13,14 +13,14 @@
 
 
                 <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="82,73,622,266"/>
-                <TextBox x:Name="txtEditor_source" Margin="16,160,556,202" />
+                <TextBox x:Name="txtEditor_source" Margin="16,160,556,202" IsEnabled="False" />
                 <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="376,73,328,266"/>
-                <TextBox x:Name="txtEditor_dest" Margin="288,160,239,202" />
+                <TextBox x:Name="txtEditor_dest" Margin="288,160,239,202" IsEnabled="False" />
 
             </Grid>
         </TabItem>
 
-        <TabItem x:Name="Tab2" Header="Save Worker" Margin="58,-2,-136,-19">
+        <TabItem x:Name="Tab2" Header="Save Worker" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus">
             <Grid Background="#FFE5E5E5">
 
                 <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="497,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>

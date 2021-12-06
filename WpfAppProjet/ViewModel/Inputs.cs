@@ -10,16 +10,16 @@ namespace Projet_progsys
         private string dest;
         private string name;
 
-        public string Source()
+        public string Source(string source)
         {
-            string src = @"C:\Users\Hanton\Desktop\Tout\CESI\ASSOS";
+            string src = source;
             this.src = src;
             return this.src;
         }
 
-        public string Destination()
+        public string Destination(string destination)
         {
-            string dest = @"C:\Users\Hanton\Desktop\Tout\CESI\A1";
+            string dest = destination;
             this.dest = dest;
             return this.dest;
         }
@@ -34,9 +34,9 @@ namespace Projet_progsys
             return this.dest;
         }
         
-        public string SetName()
+        public string SetName(string name)
         {
-            this.name = "Save 1";
+            this.name = name;
             return this.name;
         }
 

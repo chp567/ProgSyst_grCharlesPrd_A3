@@ -64,3 +64,5 @@ C:\Users\casse\Documents\GitHub\ProgSyst_grCharlesPrd_A3\WpfAppProjet\obj\Debug\
 C:\Users\casse\Documents\GitHub\ProgSyst_grCharlesPrd_A3\WpfAppProjet\obj\Debug\net5.0-windows\ref\WpfAppProjet.dll
 C:\Users\casse\Documents\GitHub\ProgSyst_grCharlesPrd_A3\WpfAppProjet\obj\Debug\net5.0-windows\WpfAppProjet.pdb
 C:\Users\casse\Documents\GitHub\ProgSyst_grCharlesPrd_A3\WpfAppProjet\obj\Debug\net5.0-windows\WpfAppProjet.genruntimeconfig.cache
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\obj\Debug\net5.0-windows\WpfAppProjet.csproj.CopyComplete

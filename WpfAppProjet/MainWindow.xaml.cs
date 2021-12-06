@@ -18,7 +18,8 @@ using Projet_progsys;
 using System.Collections;
 using System.Data;
 using ConsoleApp3testjson;
-
+using Newtonsoft.Json;
+using System.Threading;
 
 namespace WpfAppProjet
 {
@@ -79,19 +80,37 @@ namespace WpfAppProjet
             //string dest = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
         }
 
+        List<Utilisateur> utilisateurs = new List<Utilisateur>();
+        static string jsonString;
+        static JsonSerializer serializer = new JsonSerializer();
+
+        int counter = 0;
+
         private void Button_create(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("create");
             string name = "Save";
             name += " " + i.ToString();
             this.i += 1;
-            MessageBox.Show(src + " " + dest);
+            MessageBox.Show("");
             var data = new Save { Save_Name = name, Save_Src = src, Save_Dest = dest };
             SaveGrid.Items.Add(data);
+            src = src.Replace(@"\", "/");
+            dest = dest.Replace(@"\", "/");
 
 
+            Utilisateur u1 = new Utilisateur
+            {
+                SaveName = name,
+                Source = src,
+                Target = dest
 
+            };
+
+            utilisateurs.Add(u1);
+            counter++;
         }
+
         public class Save
         {
             public string Save_Name { get; set; }
@@ -117,11 +136,35 @@ namespace WpfAppProjet
 
         private void Button_unique_play(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("uplay");
             _Inputs inp1 = new _Inputs();
-            inp1.Source();
-            inp1.Destination();
-            inp1.SetName();
+
+            using (StreamReader r = new StreamReader(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
+            {
+                string json = r.ReadToEnd();
+                List<Utilisateur> items = JsonConvert.DeserializeObject<List<Utilisateur>>(json);
+                dynamic array = JsonConvert.DeserializeObject(json);
+                foreach (var item in array)
+                {
+                    string Name = item.SaveName;
+                    string saveWork = GetSelectedCellValue();
+                    if (Name == saveWork)
+                    {
+                        string source = item.Source;
+                        string destination = item.Target;
+                        string savename = item.SaveName;
+                        inp1.Source(source);
+                        inp1.Destination(destination);
+                        inp1.SetName(savename);
+                    }
+                    else if (Name == null)
+                    {
+
+                    }
+                }
+            }
+
+
+            //MessageBox.Show("uplay");
             string dest = inp1.GetDest();
             string src = inp1.GetSource();
             string name = inp1.GetName();
@@ -140,6 +183,8 @@ namespace WpfAppProjet
             Data copy = new Data();
             copy.Copy(src, dest , name);
         }
+
+        int j = 0;
         private void Button_unique_pause(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("upause");
@@ -148,10 +193,51 @@ namespace WpfAppProjet
         {
             MessageBox.Show("ustop");
         }
+
+        /////////////////////////////////////////////////////////////////////
+
         private void Button_multiple_play(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("mplay");
+            _Inputs inp1 = new _Inputs();
+            //MessageBox.Show("mplay");
+            using (StreamReader r = new StreamReader(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
+            {
+                string json = r.ReadToEnd();
+                List<Utilisateur> items = JsonConvert.DeserializeObject<List<Utilisateur>>(json);
+                dynamic array = JsonConvert.DeserializeObject(json);
+                foreach (var item in array)
+                {
+                    //Console.WriteLine("{0}\n {1}\n {2}", item.SaveName, item.Source, item.Target);
+                    string source = item.Source;
+                    //MessageBox.Show(source);
+                    string destination = item.Target;
+                    //MessageBox.Show(destination);
+                    string savename = item.SaveName;
+                    //MessageBox.Show(savename);
+                    inp1.Source(source);
+                    inp1.Destination(destination);
+                    inp1.SetName(savename);
+                    string dest = inp1.GetDest();
+                    string src = inp1.GetSource();
+                    string name = inp1.GetName();
+
+                    Logs log = new Logs();
+                    string path = "C:/Users/Hanton/Desktop/Tout/logIRT.json";
+                    if (File.Exists(path))
+                    {
+
+                    }
+                    else
+                    {
+                        log.CreateLogI(path);
+                    }
+
+                    Data copy = new Data();
+                    copy.Copy(src, dest, name);
+                }
+            }
         }
+
         private void Button_multiple_pause(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("mpause");
@@ -206,6 +292,22 @@ namespace WpfAppProjet
             tab3.Header = "Settings";
             FR.IsEnabled = true;
             EN.IsEnabled = false;
+        }
+
+        private void Tab2_GotFocus(object sender, RoutedEventArgs e)
+        {
+            jsonString = JsonConvert.SerializeObject(utilisateurs, Formatting.Indented);
+
+            using (var streamWriter = new StreamWriter(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
+            {
+                using (var jsonWriter = new JsonTextWriter(streamWriter))
+                {
+                    jsonWriter.Formatting = Formatting.Indented;
+                    serializer.Serialize(jsonWriter, JsonConvert.DeserializeObject(jsonString));
+                }
+            }
+
+            //MessageBox.Show("changer");
         }
     }
 }
