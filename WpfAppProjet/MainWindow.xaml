@@ -32,16 +32,13 @@
                 <Button x:Name="SPause" Content="Pause" Grid.Column="1" HorizontalAlignment="Left" Margin="526,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause"/>
                 <Button x:Name="SStop" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="627,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop"/>
 
-                <DataGrid x:Name="SaveGrid" Margin="10,27,374,164" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow">
+                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="Save_Name" Header="Save_Name" IsReadOnly="True" Binding="{Binding Path=Save_Name}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Source" Header="Source" IsReadOnly="True" Binding="{Binding Path=Save_Src}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Destination" Header="Destination" IsReadOnly="True"  Binding="{Binding Path=Save_Dest}" Width="100"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <TextBox x:Name="Txt_Save_Name" HorizontalAlignment="Left" Margin="44,268,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="Txt_Save_src" HorizontalAlignment="Left" Margin="44,314,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <TextBox x:Name="Txt_Save_dest" HorizontalAlignment="Left" Margin="44,361,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
             </Grid>
         </TabItem>

@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Projet_progsys;
 using System.Collections;
 using System.Data;
+using ConsoleApp3testjson;
 
 
 namespace WpfAppProjet
@@ -87,6 +88,8 @@ namespace WpfAppProjet
             MessageBox.Show(src + " " + dest);
             var data = new Save { Save_Name = name, Save_Src = src, Save_Dest = dest };
             SaveGrid.Items.Add(data);
+
+
 
         }
         public class Save
