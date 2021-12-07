@@ -80,7 +80,7 @@ namespace WpfAppProjet
             //string dest = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
         }
 
-        List<Utilisateur> utilisateurs = new List<Utilisateur>();
+        List<SaveWork> SWork = new List<SaveWork>();
         static string jsonString;
         static JsonSerializer serializer = new JsonSerializer();
 
@@ -99,7 +99,7 @@ namespace WpfAppProjet
             dest = dest.Replace(@"\", "/");
 
 
-            Utilisateur u1 = new Utilisateur
+            SaveWork u1 = new SaveWork
             {
                 SaveName = name,
                 Source = src,
@@ -107,7 +107,7 @@ namespace WpfAppProjet
 
             };
 
-            utilisateurs.Add(u1);
+            SWork.Add(u1);
             counter++;
         }
 
@@ -141,7 +141,7 @@ namespace WpfAppProjet
             using (StreamReader r = new StreamReader(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
             {
                 string json = r.ReadToEnd();
-                List<Utilisateur> items = JsonConvert.DeserializeObject<List<Utilisateur>>(json);
+                List<SaveWork> items = JsonConvert.DeserializeObject<List<SaveWork>>(json);
                 dynamic array = JsonConvert.DeserializeObject(json);
                 foreach (var item in array)
                 {
@@ -203,7 +203,7 @@ namespace WpfAppProjet
             using (StreamReader r = new StreamReader(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
             {
                 string json = r.ReadToEnd();
-                List<Utilisateur> items = JsonConvert.DeserializeObject<List<Utilisateur>>(json);
+                List<SaveWork> items = JsonConvert.DeserializeObject<List<SaveWork>>(json);
                 dynamic array = JsonConvert.DeserializeObject(json);
                 foreach (var item in array)
                 {
@@ -296,7 +296,7 @@ namespace WpfAppProjet
 
         private void Tab2_GotFocus(object sender, RoutedEventArgs e)
         {
-            jsonString = JsonConvert.SerializeObject(utilisateurs, Formatting.Indented);
+            jsonString = JsonConvert.SerializeObject(SWork, Formatting.Indented);
 
             using (var streamWriter = new StreamWriter(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
             {

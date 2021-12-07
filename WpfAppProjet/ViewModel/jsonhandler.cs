@@ -9,7 +9,7 @@ using Projet_progsys;
 
 namespace ConsoleApp3testjson
 {
-    public class Utilisateur
+    public class SaveWork
     {
 
         public string SaveName { get; set; }
@@ -20,7 +20,7 @@ namespace ConsoleApp3testjson
 
 
 
-        public Utilisateur()
+        public SaveWork()
         {
             
         }
