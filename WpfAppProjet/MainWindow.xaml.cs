@@ -109,6 +109,7 @@ namespace WpfAppProjet
 
             SWork.Add(u1);
             counter++;
+            Tab2.IsEnabled = true;
         }
 
         public class Save
@@ -184,14 +185,18 @@ namespace WpfAppProjet
             copy.Copy(src, dest , name);
         }
 
-        int j = 0;
+        int j = -1;
         private void Button_unique_pause(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("upause");
+            j++;
+            while (j is 0)
+            {
+            }
+            j = -1;
         }
         private void Button_unique_stop(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("ustop");
+            System.Diagnostics.Process.Start("cmd.exe", $"/c taskkill /IM WpfAppProjet.exe");
         }
 
         /////////////////////////////////////////////////////////////////////
@@ -238,13 +243,18 @@ namespace WpfAppProjet
             }
         }
 
+        
         private void Button_multiple_pause(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("mpause");
+            j++;
+            while (j is 0)
+            {
+            }
+            j = -1;
         }
         private void Button_multiple_stop(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("mstop");
+            System.Diagnostics.Process.Start("cmd.exe", $"/c taskkill /IM WpfAppProjet.exe");
         }
 
 

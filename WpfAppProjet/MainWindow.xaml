@@ -20,7 +20,7 @@
             </Grid>
         </TabItem>
 
-        <TabItem x:Name="Tab2" Header="Save Worker" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus">
+        <TabItem x:Name="Tab2" Header="Save Worker" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
             <Grid Background="#FFE5E5E5">
 
                 <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="497,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>

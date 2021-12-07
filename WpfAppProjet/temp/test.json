@@ -1,32 +1,7 @@
 [
   {
     "SaveName": "Save 1",
-    "Source": "C:/Users/Hanton/Desktop/Tout/CESI/ASSOS",
-    "Target": "C:/Users/Hanton/Desktop/Tout/CESI/A1"
-  },
-  {
-    "SaveName": "Save 2",
-    "Source": "C:/Users/Hanton/Desktop/Tout/CESI/ASSOS",
+    "Source": "C:/Users/Hanton/Desktop/Tout/CESI/A2",
     "Target": "C:/Users/Hanton/Desktop/Tout/CESI/A2"
-  },
-  {
-    "SaveName": "Save 3",
-    "Source": "C:/Users/Hanton/Desktop/Tout/CESI/ASSOS",
-    "Target": "C:/Users/Hanton/Desktop/Tout/CESI/A3"
-  },
-  {
-    "SaveName": "Save 4",
-    "Source": "C:/Users/Hanton/Desktop/Tout/CESI/ASSOS",
-    "Target": "C:/Users/Hanton/Desktop/Tout/CESI/A4"
-  },
-  {
-    "SaveName": "Save 5",
-    "Source": "C:/Users/Hanton/Desktop/Tout/CESI/ASSOS",
-    "Target": "C:/Users/Hanton/Desktop/Tout/CESI/A5"
-  },
-  {
-    "SaveName": "Save 6",
-    "Source": "C:/Users/Hanton/Desktop/Tout/CESI/ASSOS",
-    "Target": "C:/Users/Hanton/Desktop/Tout/CESI/A6"
   }
 ]
