@@ -20,6 +20,8 @@ using System.Data;
 using ConsoleApp3testjson;
 using Newtonsoft.Json;
 using System.Threading;
+using WpfAppProjet.Model;
+using System.Diagnostics;
 
 namespace WpfAppProjet
 {
@@ -28,9 +30,9 @@ namespace WpfAppProjet
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string dest;
+        public string destination;
         public string src;
-        int i = 1;
+        int i = 0;
         
         public MainWindow()
         {
@@ -47,8 +49,8 @@ namespace WpfAppProjet
         public string SetDest()
         {
             string dest = txtEditor_dest.Text;
-            this.dest = dest;
-            return this.dest;
+            this.destination = dest;
+            return this.destination;
         }
 
         //to open file source and dest
@@ -83,20 +85,19 @@ namespace WpfAppProjet
         List<SaveWork> SWork = new List<SaveWork>();
         static string jsonString;
         static JsonSerializer serializer = new JsonSerializer();
-
-        int counter = 0;
-
+        List<string> dest_sequential = new List<string>();
         private void Button_create(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("create");
+
+            this.i += 1;
             string name = "Save";
             name += " " + i.ToString();
-            this.i += 1;
             MessageBox.Show("");
-            var data = new Save { Save_Name = name, Save_Src = src, Save_Dest = dest };
+            var data = new Save { Save_Name = name, Save_Src = src, Save_Dest = destination };
             SaveGrid.Items.Add(data);
             src = src.Replace(@"\", "/");
-            dest = dest.Replace(@"\", "/");
+            destination = destination.Replace(@"\", "/");
             /*
             var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
             string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
@@ -108,13 +109,13 @@ namespace WpfAppProjet
             {
                 SaveName = name,
                 Source = src,
-                Target = dest
+                Target = destination
 
             };
 
             SWork.Add(u1);
-            counter++;
             Tab2.IsEnabled = true;
+            dest_sequential.Add(destination);
         }
 
         public class Save
@@ -142,59 +143,71 @@ namespace WpfAppProjet
 
         private void Button_unique_play(object sender, RoutedEventArgs e)
         {
-
-            _Inputs inp1 = new _Inputs();
-
-            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
-
-            using (StreamReader r = new StreamReader(projectDirectory + @"\temp\test.json"))
+            Process[] process = Process.GetProcessesByName("calculator");
+            if (process.Length > 0)
             {
-                string json = r.ReadToEnd();
-                List<SaveWork> items = JsonConvert.DeserializeObject<List<SaveWork>>(json);
-                dynamic array = JsonConvert.DeserializeObject(json);
-                foreach (var item in array)
+                MessageBox.Show("");
+            }
+            else
+            {
+                _Inputs inp1 = new _Inputs();
+
+                var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+                string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
+
+                using (StreamReader r = new StreamReader(projectDirectory + @"\temp\test.json"))
                 {
-                    string Name = item.SaveName;
-                    string saveWork = GetSelectedCellValue();
-                    if (Name == saveWork)
+                    string json = r.ReadToEnd();
+                    List<SaveWork> items = JsonConvert.DeserializeObject<List<SaveWork>>(json);
+                    dynamic array = JsonConvert.DeserializeObject(json);
+                    foreach (var item in array)
                     {
-                        string source = item.Source;
-                        string destination = item.Target;
-                        string savename = item.SaveName;
-                        inp1.Source(source);
-                        inp1.Destination(destination);
-                        inp1.SetName(savename);
+                        string Name = item.SaveName;
+                        string saveWork = GetSelectedCellValue();
+                        if (Name == saveWork)
+                        {
+                            string source = item.Source;
+                            string destination = item.Target;
+                            string savename = item.SaveName;
+                            inp1.Source(source);
+                            inp1.Destination(destination);
+                            inp1.SetName(savename);
+                            //MessageBox.Show("uplay");
+                            string dest = inp1.GetDest();
+                            string src = inp1.GetSource();
+                            string name = inp1.GetName();
+                            //MessageBox.Show(dest + " " + src + " " + name);
+                            Logs log = new Logs();
+
+                            string path = projectDirectory + @"\temp\logIRT.json";
+                            if (File.Exists(path))
+                            {
+
+                            }
+                            else
+                            {
+                                log.CreateLogI(path);
+                            }
+
+                            Data copy = new Data();
+                            copy.Copy(src, dest, name);
+                        }
+                        else if (Name == null)
+                        {
+
+                        }
                     }
-                    else if (Name == null)
+                    if (Encrypt.IsChecked is true)
+                    {
+                        Crypt encryption = new Crypt();
+                        encryption.Encrypt(destination);
+                    }
+                    else
                     {
 
                     }
                 }
             }
-
-
-            //MessageBox.Show("uplay");
-            string dest = inp1.GetDest();
-            string src = inp1.GetSource();
-            string name = inp1.GetName();
-            //MessageBox.Show(dest + " " + src + " " + name);
-            Logs log = new Logs();
-
-            //--------------------------------------------------------------
-
-            string path = projectDirectory + @"\temp\logIRT.json";
-            if (File.Exists(path))
-            {
-
-            }
-            else
-            {
-                log.CreateLogI(path);
-            }
-
-            Data copy = new Data();
-            copy.Copy(src, dest , name);
         }
 
         int j = -1;
@@ -215,49 +228,108 @@ namespace WpfAppProjet
 
         private void Button_multiple_play(object sender, RoutedEventArgs e)
         {
-            _Inputs inp1 = new _Inputs();
-            //MessageBox.Show("mplay");
-
-            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
-
-            using (StreamReader r = new StreamReader(projectDirectory + @"\temp\test.json"))
+            Process[] process = Process.GetProcessesByName("calculator");
+            if (process.Length > 0)
             {
-                string json = r.ReadToEnd();
-                List<SaveWork> items = JsonConvert.DeserializeObject<List<SaveWork>>(json);
-                dynamic array = JsonConvert.DeserializeObject(json);
-                foreach (var item in array)
-                {
-                    //Console.WriteLine("{0}\n {1}\n {2}", item.SaveName, item.Source, item.Target);
-                    string source = item.Source;
-                    //MessageBox.Show(source);
-                    string destination = item.Target;
-                    //MessageBox.Show(destination);
-                    string savename = item.SaveName;
-                    //MessageBox.Show(savename);
-                    inp1.Source(source);
-                    inp1.Destination(destination);
-                    inp1.SetName(savename);
-                    string dest = inp1.GetDest();
-                    string src = inp1.GetSource();
-                    string name = inp1.GetName();
+                MessageBox.Show("");
+            }
+            else
+            {
+                _Inputs inp1 = new _Inputs();
+                //MessageBox.Show("mplay");
 
-                    Logs log = new Logs();
-                    string path = projectDirectory + @"\temp\logIRT.json";
-                    if (File.Exists(path))
+                var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+                string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
+
+                using (StreamReader r = new StreamReader(projectDirectory + @"\temp\test.json"))
+                {
+                    string json = r.ReadToEnd();
+                    List<SaveWork> items = JsonConvert.DeserializeObject<List<SaveWork>>(json);
+                    dynamic array = JsonConvert.DeserializeObject(json);
+                    foreach (var item in array)
                     {
+                        //Console.WriteLine("{0}\n {1}\n {2}", item.SaveName, item.Source, item.Target);
+                        string source = item.Source;
+                        //MessageBox.Show(source);
+                        string destination = item.Target;
+                        //MessageBox.Show(destination);
+                        string savename = item.SaveName;
+                        //MessageBox.Show(savename);
+                        inp1.Source(source);
+                        inp1.Destination(destination);
+                        inp1.SetName(savename);
+                        string dest = inp1.GetDest();
+                        string src = inp1.GetSource();
+                        string name = inp1.GetName();
+
+                        Logs log = new Logs();
+                        string path = projectDirectory + @"\temp\logIRT.json";
+                        if (File.Exists(path))
+                        {
+
+                        }
+                        else
+                        {
+                            log.CreateLogI(path);
+                        }
+
+                        Data copy = new Data();
+                        copy.Copy(src, dest, name);
+                    }
+
+                    List<string> dest_ = new List<string>();
+                    foreach (var item in array)
+                    {
+                        //Console.WriteLine("{0}\n {1}\n {2}", item.SaveName, item.Source, item.Target);
+                        string source = item.Source;
+                        //MessageBox.Show(source);
+                        string destination = item.Target;
+                        //MessageBox.Show(destination);
+                        string savename = item.SaveName;
+                        //MessageBox.Show(savename);
+                        inp1.Source(source);
+                        inp1.Destination(destination);
+                        inp1.SetName(savename);
+                        string dest = inp1.GetDest();
+                        string src = inp1.GetSource();
+                        string name = inp1.GetName();
+
+                        Logs log = new Logs();
+                        string path = projectDirectory + @"\temp\logIRT.json";
+                        if (File.Exists(path))
+                        {
+
+                        }
+                        else
+                        {
+                            log.CreateLogI(path);
+                        }
+                        Data copy = new Data();
+                        copy.Copy(src, dest, name);
+                        /*foreach (string dirs in Directory.GetDirectories(dest, "*"))
+                        {
+                            //MessageBox.Show(dirs);
+                            dest_.Add(dirs);
+                        }*/
+                    }
+                    if (Encrypt.IsChecked is true)
+                    {
+                        Crypt encryption = new Crypt();
+                        foreach (string dest in dest_sequential)
+                        {
+                            encryption.Encrypt(dest);
+                        }
 
                     }
                     else
                     {
-                        log.CreateLogI(path);
+
                     }
 
-                    Data copy = new Data();
-                    copy.Copy(src, dest, name);
                 }
-            }
+            }    
         }
+        
 
         
         private void Button_multiple_pause(object sender, RoutedEventArgs e)

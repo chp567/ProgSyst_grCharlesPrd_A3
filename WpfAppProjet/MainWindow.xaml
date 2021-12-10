@@ -23,14 +23,14 @@
         <TabItem x:Name="Tab2" Header="Save Worker" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
             <Grid Background="#FFE5E5E5">
 
-                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="497,27,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="491,182,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Button x:Name="UPlay" Content="Start" Grid.Column="1" HorizontalAlignment="Left" Margin="425,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play"/>
-                <Button x:Name="UPause" Content="Pause" Grid.Column="1" HorizontalAlignment="Left" Margin="525,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause"/>
-                <Button x:Name="USTop" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="627,85,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop"/>
-                <Button x:Name="SPlay" Content="Start" Grid.Column="1" HorizontalAlignment="Left" Margin="425,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play"/>
-                <Button x:Name="SPause" Content="Pause" Grid.Column="1" HorizontalAlignment="Left" Margin="526,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause"/>
-                <Button x:Name="SStop" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Margin="627,245,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop"/>
+                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="545,56,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="539,211,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+                <Button x:Name="UPlay" Content="Start" HorizontalAlignment="Left" Margin="473,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play"/>
+                <Button x:Name="UPause" Content="Pause" HorizontalAlignment="Left" Margin="573,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause"/>
+                <Button x:Name="USTop" Content="Stop" HorizontalAlignment="Left" Margin="675,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop"/>
+                <Button x:Name="SPlay" Content="Start" HorizontalAlignment="Left" Margin="473,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play"/>
+                <Button x:Name="SPause" Content="Pause" HorizontalAlignment="Left" Margin="574,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause"/>
+                <Button x:Name="SStop" Content="Stop" HorizontalAlignment="Left" Margin="675,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop"/>
 
                 <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow">
                     <DataGrid.Columns>
@@ -52,6 +52,7 @@
                 <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
                 <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french"/>
                 <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False"/>
+                <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False"/>
 
             </Grid>
         </TabItem>
