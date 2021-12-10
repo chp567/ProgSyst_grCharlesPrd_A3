@@ -33,7 +33,10 @@ namespace Projet_progsys
                 + $"{Environment.NewLine}"
                 + "},";
             //calling the file function to write in the log file
-            File.AppendAllText(@"C:\Users\Hanton\Desktop\Tout\log.json", log); 
+            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
+
+            File.AppendAllText(projectDirectory+@"\temp\log.json", log); 
         }
 
         public void CreateLogI(string path) //In real time log

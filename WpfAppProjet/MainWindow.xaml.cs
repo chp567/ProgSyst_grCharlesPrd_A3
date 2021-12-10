@@ -31,7 +31,7 @@ namespace WpfAppProjet
         public string dest;
         public string src;
         int i = 1;
-
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -97,7 +97,12 @@ namespace WpfAppProjet
             SaveGrid.Items.Add(data);
             src = src.Replace(@"\", "/");
             dest = dest.Replace(@"\", "/");
+            /*
+            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
 
+            MessageBox.Show(projectDirectory+@"\temp\log.json");
+            */
 
             SaveWork u1 = new SaveWork
             {
@@ -137,9 +142,13 @@ namespace WpfAppProjet
 
         private void Button_unique_play(object sender, RoutedEventArgs e)
         {
+
             _Inputs inp1 = new _Inputs();
 
-            using (StreamReader r = new StreamReader(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
+            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
+
+            using (StreamReader r = new StreamReader(projectDirectory + @"\temp\test.json"))
             {
                 string json = r.ReadToEnd();
                 List<SaveWork> items = JsonConvert.DeserializeObject<List<SaveWork>>(json);
@@ -171,7 +180,10 @@ namespace WpfAppProjet
             string name = inp1.GetName();
             //MessageBox.Show(dest + " " + src + " " + name);
             Logs log = new Logs();
-            string path = "C:/Users/Hanton/Desktop/Tout/logIRT.json";
+
+            //--------------------------------------------------------------
+
+            string path = projectDirectory + @"\temp\logIRT.json";
             if (File.Exists(path))
             {
 
@@ -205,7 +217,11 @@ namespace WpfAppProjet
         {
             _Inputs inp1 = new _Inputs();
             //MessageBox.Show("mplay");
-            using (StreamReader r = new StreamReader(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
+
+            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
+
+            using (StreamReader r = new StreamReader(projectDirectory + @"\temp\test.json"))
             {
                 string json = r.ReadToEnd();
                 List<SaveWork> items = JsonConvert.DeserializeObject<List<SaveWork>>(json);
@@ -227,7 +243,7 @@ namespace WpfAppProjet
                     string name = inp1.GetName();
 
                     Logs log = new Logs();
-                    string path = "C:/Users/Hanton/Desktop/Tout/logIRT.json";
+                    string path = projectDirectory + @"\temp\logIRT.json";
                     if (File.Exists(path))
                     {
 
@@ -308,7 +324,10 @@ namespace WpfAppProjet
         {
             jsonString = JsonConvert.SerializeObject(SWork, Formatting.Indented);
 
-            using (var streamWriter = new StreamWriter(@"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\WpfAppProjet\temp\test.json"))
+            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
+
+            using (var streamWriter = new StreamWriter(projectDirectory + @"\temp\test.json")) 
             {
                 using (var jsonWriter = new JsonTextWriter(streamWriter))
                 {
