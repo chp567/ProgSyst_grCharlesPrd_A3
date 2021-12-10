@@ -38,16 +38,17 @@ How do you use this software :
 ## Made with
 
 * [.net core](https://dotnet.microsoft.com/)
-
+* [Visual Studio](https://visualstudio.microsoft.com/fr/)
+* [JetBrains Rider](https://www.jetbrains.com/fr-fr/rider/)
 
 ## Versions
 
-**Latest stable version :** EasySave 1.0
-> 24 november 2021
+**Latest stable version :** EasySave 2.0
+> 10 décembre 2021
 
-**Last version :** november 2021
+**Last version :** décembre 2021
 
-List of versions: [Click to display](https://github.com/chp567/ProgSyst_grCharlesPrd_A3/commits/main)
+List of versions: [Click to display](https://github.com/chp567/ProgSyst_grCharlesPrd_A3/commits/easy_save)
 
 
 ## License
