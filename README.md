@@ -6,7 +6,7 @@
 [![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?&style=for-the-badge&logo=visual-studio&logoColor=white)](https://visualstudio.microsoft.com/fr/)
 [![Rider](https://img.shields.io/badge/Rider-000000.svg?style=for-the-badge&logo=Rider&logoColor=white&color=black&labelColor=crimson)](https://www.jetbrains.com/fr-fr/rider/)
 
-Backup Application
+Secure Backup Application
 
 ## Start-up
 
