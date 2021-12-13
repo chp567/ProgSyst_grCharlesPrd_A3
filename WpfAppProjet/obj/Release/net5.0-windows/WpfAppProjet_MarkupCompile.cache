@@ -1,19 +1,19 @@
 ﻿WpfAppProjet
-1.0.0.0
+
 
 winexe
 C#
 .cs
-C:\Users\casse\Documents\GitHub\ProgSyst_grCharlesPrd_A3\WpfAppProjet\obj\Debug\net5.0-windows\
+C:\Users\casse\Documents\GitHub\ProgSyst_grCharlesPrd_A3\WpfAppProjet\obj\Release\net5.0-windows\
 WpfAppProjet
 none
 false
-TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+TRACE;RELEASE;NET;NET5_0;NETCOREAPP
 C:\Users\casse\Documents\GitHub\ProgSyst_grCharlesPrd_A3\WpfAppProjet\App.xaml
 11407045341
 
-13-1704558754
-194437303022
+11-1297363284
+193-1891726104
 MainWindow.xaml;
 
 True

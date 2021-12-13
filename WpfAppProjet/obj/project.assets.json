@@ -48,20 +48,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hanton\\.nuget\\packages\\": {}
+    "C:\\Users\\casse\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hanton\\Documents\\GitHub\\Projet_Web\\ProgSyst_grCharlesPrd_A3\\WpfAppProjet\\WpfAppProjet.csproj",
+      "projectUniqueName": "C:\\Users\\casse\\Documents\\GitHub\\ProgSyst_grCharlesPrd_A3\\WpfAppProjet\\WpfAppProjet.csproj",
       "projectName": "WpfAppProjet",
-      "projectPath": "C:\\Users\\Hanton\\Documents\\GitHub\\Projet_Web\\ProgSyst_grCharlesPrd_A3\\WpfAppProjet\\WpfAppProjet.csproj",
-      "packagesPath": "C:\\Users\\Hanton\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hanton\\Documents\\GitHub\\Projet_Web\\ProgSyst_grCharlesPrd_A3\\WpfAppProjet\\obj\\",
+      "projectPath": "C:\\Users\\casse\\Documents\\GitHub\\ProgSyst_grCharlesPrd_A3\\WpfAppProjet\\WpfAppProjet.csproj",
+      "packagesPath": "C:\\Users\\casse\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\casse\\Documents\\GitHub\\ProgSyst_grCharlesPrd_A3\\WpfAppProjet\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Hanton\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\casse\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows7.0"
@@ -109,7 +117,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
