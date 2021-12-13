@@ -32,6 +32,7 @@ namespace WpfAppProjet
     {
         public string destination;
         public string src;
+        public string extension;
         int i = 0;
         
         public MainWindow()
@@ -200,7 +201,7 @@ namespace WpfAppProjet
                     if (Encrypt.IsChecked is true)
                     {
                         Crypt encryption = new Crypt();
-                        encryption.Encrypt(destination);
+                        encryption.Encrypt(destination, extensions);
                     }
                     else
                     {
@@ -277,7 +278,6 @@ namespace WpfAppProjet
                         copy.Copy(src, dest, name);
                     }
 
-                    List<string> dest_ = new List<string>();
                     foreach (var item in array)
                     {
                         //Console.WriteLine("{0}\n {1}\n {2}", item.SaveName, item.Source, item.Target);
@@ -317,7 +317,7 @@ namespace WpfAppProjet
                         Crypt encryption = new Crypt();
                         foreach (string dest in dest_sequential)
                         {
-                            encryption.Encrypt(dest);
+                            encryption.Encrypt(dest, extensions);
                         }
 
                     }
@@ -409,6 +409,35 @@ namespace WpfAppProjet
             }
 
             //MessageBox.Show("changer");
+        }
+
+        //button extensions
+        private void ExtensionAdd(object sender, RoutedEventArgs e)
+        {
+            ListBox.Items.Add(Extension.Text.Insert(0,"."));
+        }
+
+        List<string> extensions = new List<string>();
+
+        private void Selected_ext(object sender, RoutedEventArgs e)
+        {
+            string extension = ListBox.Items[ListBox.Items.IndexOf(ListBox.SelectedItem)].ToString();
+            extensions.Add(extension);
+            //this.extension = extension;
+            UPlay.IsEnabled = true;
+            SPlay.IsEnabled = true;
+        }
+
+        private void Encrypt_Checked(object sender, RoutedEventArgs e)
+        {
+                UPlay.IsEnabled = false;
+                SPlay.IsEnabled = false;
+        }
+
+        private void Encrypt_Unchecked(object sender, RoutedEventArgs e)
+        {
+            UPlay.IsEnabled = true;
+            SPlay.IsEnabled = true;
         }
     }
 }
