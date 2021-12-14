@@ -278,40 +278,6 @@ namespace WpfAppProjet
                         copy.Copy(src, dest, name);
                     }
 
-                    foreach (var item in array)
-                    {
-                        //Console.WriteLine("{0}\n {1}\n {2}", item.SaveName, item.Source, item.Target);
-                        string source = item.Source;
-                        //MessageBox.Show(source);
-                        string destination = item.Target;
-                        //MessageBox.Show(destination);
-                        string savename = item.SaveName;
-                        //MessageBox.Show(savename);
-                        inp1.Source(source);
-                        inp1.Destination(destination);
-                        inp1.SetName(savename);
-                        string dest = inp1.GetDest();
-                        string src = inp1.GetSource();
-                        string name = inp1.GetName();
-
-                        Logs log = new Logs();
-                        string path = projectDirectory + @"\temp\logIRT.json";
-                        if (File.Exists(path))
-                        {
-
-                        }
-                        else
-                        {
-                            log.CreateLogI(path);
-                        }
-                        Data copy = new Data();
-                        copy.Copy(src, dest, name);
-                        /*foreach (string dirs in Directory.GetDirectories(dest, "*"))
-                        {
-                            //MessageBox.Show(dirs);
-                            dest_.Add(dirs);
-                        }*/
-                    }
                     if (Encrypt.IsChecked is true)
                     {
                         Crypt encryption = new Crypt();
@@ -365,6 +331,9 @@ namespace WpfAppProjet
             tab1.Header = "Création de sauvegarde";
             Tab2.Header = "Gestion de sauvegarde";
             tab3.Header = "Paramètres";
+            Encrypt.Content = "Crypté";
+            add.Content = "Ajouter";
+            Select.Content = "Selectionner";
             FR.IsEnabled = false;
             EN.IsEnabled = true;
         }
@@ -388,6 +357,9 @@ namespace WpfAppProjet
             tab1.Header = "Save Setup";
             Tab2.Header = "Save Worker";
             tab3.Header = "Settings";
+            Encrypt.Content = "Crypted";
+            add.Content = "Add";
+            Select.Content = "Select";
             FR.IsEnabled = true;
             EN.IsEnabled = false;
         }
@@ -430,8 +402,8 @@ namespace WpfAppProjet
 
         private void Encrypt_Checked(object sender, RoutedEventArgs e)
         {
-                UPlay.IsEnabled = false;
-                SPlay.IsEnabled = false;
+            UPlay.IsEnabled = false;
+            SPlay.IsEnabled = false;
         }
 
         private void Encrypt_Unchecked(object sender, RoutedEventArgs e)

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 using WpfAppProjet;
+using Newtonsoft.Json;
 
 
 namespace Projet_progsys
@@ -190,7 +192,7 @@ namespace Projet_progsys
             + "},";
 
             //Console.WriteLine(log);
-
+            MessageBox.Show(log);
             string text = File.ReadAllText(path);
             string log1 = GetLogI();
             text = text.Replace( log1, log);
