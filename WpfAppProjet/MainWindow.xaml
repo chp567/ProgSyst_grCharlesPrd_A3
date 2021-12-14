@@ -9,15 +9,19 @@
     <TabControl>
         <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20">
             <Grid Background="#FFE5E5E5">
-                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="603,82,0,0" VerticalAlignment="Top" Height="47" Width="158" Click="Button_create"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="133*"/>
+                    <ColumnDefinition Width="264*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="337,82,0,0" VerticalAlignment="Top" Height="47" Width="158" Click="Button_create" Grid.Column="1"/>
 
 
-                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="82,73,622,266"/>
-                <TextBox x:Name="txtEditor_source" Margin="16,160,556,202" IsEnabled="False" />
-                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="376,73,328,266"/>
-                <TextBox x:Name="txtEditor_dest" Margin="288,160,239,202" IsEnabled="False" />
-                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,369,0,0" VerticalAlignment="Top" Width="93"/>
-                <Image HorizontalAlignment="Left" Height="100" Margin="649,310,0,0" VerticalAlignment="Top" Width="135" Source="/ProSoft.png"/>
+                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="82,73,94,266"/>
+                <TextBox x:Name="txtEditor_source" Margin="16,160,28,202" IsEnabled="False" />
+                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="110,73,328,266" Grid.Column="1"/>
+                <TextBox x:Name="txtEditor_dest" Margin="22,160,239,202" IsEnabled="False" Grid.Column="1" />
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,353,0,0" VerticalAlignment="Top" Width="93"/>
+                <Image HorizontalAlignment="Left" Height="100" Margin="383,292,0,0" VerticalAlignment="Top" Width="135" Source="/ProSoft.png" Grid.Column="1"/>
 
             </Grid>
         </TabItem>
@@ -45,7 +49,7 @@
                         <DataGridTextColumn x:Name="Destination" Header="Destination" IsReadOnly="True"  Binding="{Binding Path=Save_Dest}" Width="100"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="338,369,0,0" VerticalAlignment="Top" Width="56" Grid.Column="1"/>
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="321,359,0,0" VerticalAlignment="Top" Width="69" Grid.Column="1"/>
 
             </Grid>
         </TabItem>
@@ -59,12 +63,12 @@
                 <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
                 <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="2,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french">
                     <Button.Background>
-                        <ImageBrush ImageSource="assets/france.png"></ImageBrush>
+                        <ImageBrush ImageSource="/france.png"></ImageBrush>
                     </Button.Background>
                 </Button>
                 <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False"/>
                 <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False"/>
-                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,369,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,355,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
 
             </Grid>
         </TabItem>
