@@ -8,12 +8,6 @@
         Title="EasySave" Height="450" Width="800" Icon="/icon.png">
     <TabControl>
         <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20">
-            <TabItem.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="#FFD61C1C" Offset="1"/>
-                </LinearGradientBrush>
-            </TabItem.Background>
             <Grid Background="#FFE5E5E5">
                 <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="603,82,0,0" VerticalAlignment="Top" Height="47" Width="158" Click="Button_create"/>
 
@@ -63,7 +57,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french"/>
+                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french">
+                    <Button.Background>
+                        <ImageBrush ImageSource="assets/france.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
                 <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False"/>
                 <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False"/>
 
