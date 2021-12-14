@@ -13,12 +13,22 @@
                     <ColumnDefinition Width="133*"/>
                     <ColumnDefinition Width="264*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="337,82,0,0" VerticalAlignment="Top" Height="47" Width="158" Click="Button_create" Grid.Column="1"/>
-
-
-                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="82,73,94,266"/>
+                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="337,73,0,0" VerticalAlignment="Top" Height="48" Width="158" Click="Button_create" Grid.Column="1">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/create2.png" Stretch="Uniform" AlignmentX="Right"></ImageBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="37,73,49,266">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/source.png" Stretch="Uniform" AlignmentX="Right"></ImageBrush>
+                    </Button.Background>
+                </Button>
                 <TextBox x:Name="txtEditor_source" Margin="16,160,28,202" IsEnabled="False" />
-                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="110,73,328,266" Grid.Column="1"/>
+                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="50,73,268,266" Grid.Column="1" RenderTransformOrigin="0.445,0.505">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/target.png" Stretch="Uniform" AlignmentX="Right"></ImageBrush>
+                    </Button.Background>
+                </Button>
                 <TextBox x:Name="txtEditor_dest" Margin="22,160,239,202" IsEnabled="False" Grid.Column="1" />
                 <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,353,0,0" VerticalAlignment="Top" Width="93"/>
                 <Image HorizontalAlignment="Left" Height="100" Margin="383,292,0,0" VerticalAlignment="Top" Width="135" Source="/ProSoft.png" Grid.Column="1"/>
@@ -73,6 +83,8 @@
                 </Button>
                 <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False"/>
                 <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,355,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
+                <Image HorizontalAlignment="Left" Height="59" Margin="56,23,0,0" VerticalAlignment="Top" Width="60" Source="/language.png" Grid.ColumnSpan="2"/>
+                <Image HorizontalAlignment="Left" Height="60" Margin="24,202,0,0" VerticalAlignment="Top" Width="50" Source="/crypted.png" RenderTransformOrigin="-3.181,0.489"/>
 
             </Grid>
         </TabItem>
