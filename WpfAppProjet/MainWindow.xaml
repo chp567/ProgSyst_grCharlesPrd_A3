@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProjet"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="EasySave" Height="450" Width="800" Icon="/icon.png">
     <TabControl>
         <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20">
             <Grid Background="#FFE5E5E5">
@@ -16,29 +16,36 @@
                 <TextBox x:Name="txtEditor_source" Margin="16,160,556,202" IsEnabled="False" />
                 <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="376,73,328,266"/>
                 <TextBox x:Name="txtEditor_dest" Margin="288,160,239,202" IsEnabled="False" />
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,369,0,0" VerticalAlignment="Top" Width="93"/>
+                <Image HorizontalAlignment="Left" Height="100" Margin="649,310,0,0" VerticalAlignment="Top" Width="135" Source="/ProSoft.png"/>
 
             </Grid>
         </TabItem>
 
         <TabItem x:Name="Tab2" Header="Save Worker" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
             <Grid Background="#FFE5E5E5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="195*"/>
+                    <ColumnDefinition Width="202*"/>
+                </Grid.ColumnDefinitions>
 
-                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="545,56,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="539,211,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Button x:Name="UPlay" Content="Start" HorizontalAlignment="Left" Margin="473,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play"/>
-                <Button x:Name="UPause" Content="Pause" HorizontalAlignment="Left" Margin="573,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause"/>
-                <Button x:Name="USTop" Content="Stop" HorizontalAlignment="Left" Margin="675,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop"/>
-                <Button x:Name="SPlay" Content="Start" HorizontalAlignment="Left" Margin="473,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play"/>
-                <Button x:Name="SPause" Content="Pause" HorizontalAlignment="Left" Margin="574,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause"/>
-                <Button x:Name="SStop" Content="Stop" HorizontalAlignment="Left" Margin="675,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop"/>
+                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="155,56,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="1"/>
+                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="149,211,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="1"/>
+                <Button x:Name="UPlay" Content="Start" HorizontalAlignment="Left" Margin="83,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play" Grid.Column="1"/>
+                <Button x:Name="UPause" Content="Pause" HorizontalAlignment="Left" Margin="183,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause" Grid.Column="1"/>
+                <Button x:Name="USTop" Content="Stop" HorizontalAlignment="Left" Margin="285,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop" Grid.Column="1"/>
+                <Button x:Name="SPlay" Content="Start" HorizontalAlignment="Left" Margin="83,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play" Grid.Column="1"/>
+                <Button x:Name="SPause" Content="Pause" HorizontalAlignment="Left" Margin="184,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause" Grid.Column="1"/>
+                <Button x:Name="SStop" Content="Stop" HorizontalAlignment="Left" Margin="285,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop" Grid.Column="1"/>
 
-                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow">
+                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow" Grid.ColumnSpan="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="Save_Name" Header="Save_Name" IsReadOnly="True" Binding="{Binding Path=Save_Name}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Source" Header="Source" IsReadOnly="True" Binding="{Binding Path=Save_Src}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Destination" Header="Destination" IsReadOnly="True"  Binding="{Binding Path=Save_Dest}" Width="100"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="338,369,0,0" VerticalAlignment="Top" Width="56" Grid.Column="1"/>
 
             </Grid>
         </TabItem>
@@ -50,9 +57,14 @@
                 </Grid.ColumnDefinitions>
 
                 <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french"/>
+                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="2,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french">
+                    <Button.Background>
+                        <ImageBrush ImageSource="assets/france.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
                 <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False"/>
                 <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,369,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
 
             </Grid>
         </TabItem>
