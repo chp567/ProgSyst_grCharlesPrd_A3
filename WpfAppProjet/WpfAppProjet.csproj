@@ -14,6 +14,7 @@
     <None Remove="france.png" />
     <None Remove="icon.png" />
     <None Remove="language.png" />
+    <None Remove="miss.png" />
     <None Remove="ProSoft.png" />
     <None Remove="source.png" />
     <None Remove="target.png" />
@@ -31,6 +32,7 @@
     <Resource Include="france.png" />
     <Resource Include="icon.png" />
     <Resource Include="language.png" />
+    <Resource Include="miss.png" />
     <Resource Include="ProSoft.png" />
     <Resource Include="source.png" />
     <Resource Include="target.png" />

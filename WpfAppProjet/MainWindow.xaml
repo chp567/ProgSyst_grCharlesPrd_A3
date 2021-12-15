@@ -31,7 +31,12 @@
                 </Button>
                 <TextBox x:Name="txtEditor_dest" Margin="22,160,239,202" IsEnabled="False" Grid.Column="1" />
                 <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,353,0,0" VerticalAlignment="Top" Width="93"/>
-                <Image HorizontalAlignment="Left" Height="100" Margin="383,292,0,0" VerticalAlignment="Top" Width="135" Source="/ProSoft.png" Grid.Column="1"/>
+                <Button Grid.Column="1" HorizontalAlignment="Left" Margin="387,299,0,0" VerticalAlignment="Top" Height="79" Width="108" Click="Button_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ProSoft.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+                <Image Grid.Column="1" HorizontalAlignment="Left" Height="152" Margin="87,219,0,0" VerticalAlignment="Top" Width="151" Source="/miss.png"/>
 
             </Grid>
         </TabItem>

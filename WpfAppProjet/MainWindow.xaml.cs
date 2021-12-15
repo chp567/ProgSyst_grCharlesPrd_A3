@@ -410,5 +410,10 @@ namespace WpfAppProjet
 
             //MessageBox.Show("changer");
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ceci est un easter egg");
+        }
     }
 }
