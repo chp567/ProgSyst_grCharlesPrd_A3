@@ -414,6 +414,7 @@ namespace WpfAppProjet
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("ceci est un easter egg");
+            Miss.Visibility = Visibility.Visible;
         }
     }
 }
