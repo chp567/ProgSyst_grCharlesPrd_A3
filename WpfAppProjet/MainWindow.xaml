@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="EasySave" Height="450" Width="800" Icon="/icon.png" Background="#F5E2C8">
     <TabControl>
-        <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20" Background="#FFD88373">
+        <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20" Background="#FFD88373" Foreground="#18206F">
             <Grid Background="#F5E2C8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="81*"/>
@@ -30,7 +30,7 @@
             </Grid>
         </TabItem>
 
-        <TabItem x:Name="Tab2" Header="Save Worker" Background="#FFD88373" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
+        <TabItem x:Name="Tab2" Header="Save Worker" Background="#FFD88373" Foreground="#18206F" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
             <Grid Background="#F5E2C8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="69*"/>
@@ -59,7 +59,7 @@
 
             </Grid>
         </TabItem>
-        <TabItem x:Name="tab3" Header="Settings" Margin="135,-2,-213,-19" Background="#FFD88373">
+        <TabItem x:Name="tab3" Header="Settings" Margin="135,-2,-213,-19" Background="#FFD88373" Foreground="#18206F">
             <Grid Background="#F5E2C8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="37*"/>
