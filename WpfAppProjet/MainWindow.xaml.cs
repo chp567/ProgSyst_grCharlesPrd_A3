@@ -22,6 +22,8 @@ using Newtonsoft.Json;
 using System.Threading;
 using WpfAppProjet.Model;
 using System.Diagnostics;
+using WpfAppProjet.ViewModel;
+using System.Net.Sockets;
 
 namespace WpfAppProjet
 {
@@ -142,6 +144,7 @@ namespace WpfAppProjet
             return element.Tag.ToString();
         }
 
+        bool Checked;
         private void Button_unique_play(object sender, RoutedEventArgs e)
         {
             Process[] process = Process.GetProcessesByName("calculator");
@@ -151,6 +154,17 @@ namespace WpfAppProjet
             }
             else
             {
+                if (Encrypt.IsChecked is true)
+                {
+                     Checked = true;
+                    /*Crypt encryption = new Crypt();
+                    encryption.Encrypt(destination, extensions);*/
+                }
+                else
+                {
+                    Checked = false;
+                }
+
                 _Inputs inp1 = new _Inputs();
 
                 var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
@@ -191,21 +205,12 @@ namespace WpfAppProjet
                             }
 
                             Data copy = new Data();
-                            copy.Copy(src, dest, name);
+                            copy.Copy(src, dest, name, Checked, extensions, dest_sequential, server_started);
                         }
                         else if (Name == null)
                         {
 
                         }
-                    }
-                    if (Encrypt.IsChecked is true)
-                    {
-                        Crypt encryption = new Crypt();
-                        encryption.Encrypt(destination, extensions);
-                    }
-                    else
-                    {
-
                     }
                 }
             }
@@ -275,10 +280,10 @@ namespace WpfAppProjet
                         }
 
                         Data copy = new Data();
-                        copy.Copy(src, dest, name);
+                        copy.Copy(src, dest, name, Checked, extensions, dest_sequential, server_started);
                     }
 
-                    if (Encrypt.IsChecked is true)
+                    /*if (Encrypt.IsChecked is true)
                     {
                         Crypt encryption = new Crypt();
                         foreach (string dest in dest_sequential)
@@ -290,7 +295,7 @@ namespace WpfAppProjet
                     else
                     {
 
-                    }
+                    }*/
 
                 }
             }    
@@ -410,6 +415,26 @@ namespace WpfAppProjet
         {
             UPlay.IsEnabled = true;
             SPlay.IsEnabled = true;
+        }
+
+        //Server s1 = new Server();
+        //Socket ClientCon;
+        bool server_started = false;
+        private void ServerConnect_Click(object sender, RoutedEventArgs e)
+        {
+            server_started = true;
+
+            /*Socket ServerCon = s1.ServerConnect();
+
+            ClientCon = s1.ClientConnect(ServerCon);
+
+            s1.NetworkListener(ClientCon);*/
+        }
+
+        private void ServerDisconnect_Click(object sender, RoutedEventArgs e)
+        {
+            server_started = false;
+            //s1.Disconnecting(ClientCon);
         }
     }
 }

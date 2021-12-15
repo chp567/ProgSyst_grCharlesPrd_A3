@@ -57,6 +57,8 @@
                 <TextBox x:Name="Extension" Grid.Column="1" HorizontalAlignment="Left" Margin="273,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Button x:Name="add" Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="420,66,0,0" VerticalAlignment="Top" Click="ExtensionAdd"/>
                 <Button x:Name="Select" Content="Select" Grid.Column="1" HorizontalAlignment="Left" Margin="472,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Selected_ext"/>
+                <Button x:Name="ServerConnect" Content="Server Connect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="25" Margin="20,309,0,0" VerticalAlignment="Top" Width="90" Click="ServerConnect_Click"/>
+                <Button x:Name="ServerDisconnect" Content="Server Disconnect" Grid.Column="1" HorizontalAlignment="Left" Margin="98,309,0,0" VerticalAlignment="Top" Click="ServerDisconnect_Click"/>
 
             </Grid>
         </TabItem>

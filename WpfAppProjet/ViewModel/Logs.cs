@@ -4,7 +4,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using WpfAppProjet;
 using Newtonsoft.Json;
-
+using WpfAppProjet.Model;
+using System.Collections.Generic;
+using WpfAppProjet.ViewModel;
+using System.Net.Sockets;
 
 namespace Projet_progsys
 {
@@ -12,8 +15,46 @@ namespace Projet_progsys
     {
         private string log;
         private string log1;
-        public void LogD(string name, string filenamesource, string filenametarget, long fSize, string transferttime, string time) //daily log
+        string ETime;
+
+        public void LogD(string name, string filenamesource, string filenametarget, long fSize, string transferttime, string time, bool Checked, List<string> extensions, List<string> destinations) //daily log
         {
+            FileInfo fi = new FileInfo(filenametarget);
+
+                foreach (var extension in extensions)
+                {
+                    if (fi.Extension == extension)
+                    {
+
+                        foreach (string destination in destinations)
+                        {
+                            if (Checked is true)
+                            {
+                                Crypt encryption = new Crypt();
+                                encryption.Encrypt(extensions, destination);
+                                ETime = encryption.GetFileEncryptionTime();
+                            }
+                            else
+                            {
+                                ETime = "0";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (string destination in destinations)
+                        {
+                            if (Checked is true)
+                            {
+                                ETime = "0";
+                            }
+                            else
+                            {
+                                ETime = "0";
+                            }
+                        }
+                    }
+                }
             string log;
             //creation of the variable logs containing the log details
             log = $"{Environment.NewLine}"
@@ -27,11 +68,13 @@ namespace Projet_progsys
                 + $"{Environment.NewLine} " + (char)34 + "destPath" + (char)34 + ": '' "
                 + ","
                 + $"{Environment.NewLine} " + (char)34 + "FileSize" + (char)34 + ": " + fSize  
-               + ","
+                + ","
                 + $"{Environment.NewLine} " + (char)34 + "FileTransferTime" + (char)34 + ": " + transferttime
                 + ","
                 + $"{Environment.NewLine} " + (char)34 + "time" + (char)34 + ": " + (char)34 + time + (char)34
-               + ","
+                + ","
+                + $"{Environment.NewLine} " + (char)34 + "Encryption time" + (char)34 + ": "  + ETime 
+                + ","
                 + $"{Environment.NewLine}"
                 + "},";
             //calling the file function to write in the log file
@@ -168,7 +211,8 @@ namespace Projet_progsys
             return this.log;
         }
 
-            public string UpdateLogI(string name, string filenamesource, string filenametarget, string state, double sizedir, int filecount, int Lfile, double progression, string path)
+
+        public string UpdateLogI(string name, string filenamesource, string filenametarget, string state, double sizedir, int filecount, int Lfile, double progression, string path)
         {
             string log = $"{ Environment.NewLine}"
             + "{"
@@ -191,13 +235,12 @@ namespace Projet_progsys
             + $"{Environment.NewLine}"
             + "},";
 
-            //Console.WriteLine(log);
-            MessageBox.Show(log);
-            string text = File.ReadAllText(path);
-            string log1 = GetLogI();
-            text = text.Replace( log1, log);
-            File.WriteAllText(path, text);
-
+                //Console.WriteLine(log);
+                //MessageBox.Show(log);
+                string text = File.ReadAllText(path);
+                string log1 = GetLogI();
+                text = text.Replace( log1, log);
+                File.WriteAllText(path, text);
             return log;
         }
 
