@@ -5,88 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProjet"
         mc:Ignorable="d"
-        Title="EasySave" Height="450" Width="800" Icon="/icon.png">
+        Title="EasySave" Height="450" Width="800" Icon="/icon.png" Background="#F5E2C8">
     <TabControl>
-        <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20">
-            <Grid Background="#FFE5E5E5">
+        <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20" Background="#FFD88373">
+            <Grid Background="#F5E2C8">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="133*"/>
-                    <ColumnDefinition Width="264*"/>
+                    <ColumnDefinition Width="81*"/>
+                    <ColumnDefinition Width="185*"/>
+                    <ColumnDefinition Width="528*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="337,73,0,0" VerticalAlignment="Top" Height="48" Width="158" Click="Button_create" Grid.Column="1">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/create2.png" Stretch="Uniform" AlignmentX="Right"></ImageBrush>
-                    </Button.Background>
-                </Button>
-                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="37,73,49,266">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/source.png" Stretch="Uniform" AlignmentX="Right"></ImageBrush>
-                    </Button.Background>
-                </Button>
-                <TextBox x:Name="txtEditor_source" Margin="16,160,28,202" IsEnabled="False" />
-                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="50,73,268,266" Grid.Column="1" RenderTransformOrigin="0.445,0.505">
-                    <Button.Background>
-                        <ImageBrush ImageSource="/target.png" Stretch="Uniform" AlignmentX="Right"></ImageBrush>
-                    </Button.Background>
-                </Button>
-                <TextBox x:Name="txtEditor_dest" Margin="22,160,239,202" IsEnabled="False" Grid.Column="1" />
-                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,353,0,0" VerticalAlignment="Top" Width="93"/>
-                <Button Grid.Column="1" HorizontalAlignment="Left" Margin="387,299,0,0" VerticalAlignment="Top" Height="79" Width="108" Click="Button_Click">
+                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="337,73,0,0" VerticalAlignment="Top" Height="48" Width="158" Click="Button_create" Grid.Column="2" Background="#17255A" Foreground="#BD1E1E"/>
+                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="37,73,49,266" Grid.ColumnSpan="2" Background="MidnightBlue" Foreground="#BD1E1E"/>
+                <TextBox x:Name="txtEditor_source" Margin="16,160,28,202" IsEnabled="False" Background="RoyalBlue" Grid.ColumnSpan="2" />
+                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="50,73,268,266" Grid.Column="2" RenderTransformOrigin="0.445,0.505" Background="#17255A" Foreground="#BD1E1E"/>
+                <TextBox x:Name="txtEditor_dest" Margin="22,160,239,202" IsEnabled="False" Grid.Column="2" Background="RoyalBlue" />
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,353,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
+                <Button Grid.Column="2" HorizontalAlignment="Left" Margin="387,299,0,0" VerticalAlignment="Top" Height="79" Width="108" Click="Button_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="/ProSoft.png"></ImageBrush>
                     </Button.Background>
                 </Button>
-                <Image Name="Miss" Grid.Column="1" HorizontalAlignment="Left" Height="152" Margin="87,219,0,0" VerticalAlignment="Top" Width="151" Source="/miss.png" Visibility="Hidden"/>
+                <Image Name="Miss" Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="87,219,0,0" VerticalAlignment="Top" Width="151" Source="/miss.png" Visibility="Hidden"/>
 
             </Grid>
         </TabItem>
 
-        <TabItem x:Name="Tab2" Header="Save Worker" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
-            <Grid Background="#FFE5E5E5">
+        <TabItem x:Name="Tab2" Header="Save Worker" Background="#FFD88373" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
+            <Grid Background="#F5E2C8">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="195*"/>
-                    <ColumnDefinition Width="202*"/>
+                    <ColumnDefinition Width="69*"/>
+                    <ColumnDefinition Width="269*"/>
+                    <ColumnDefinition Width="53*"/>
+                    <ColumnDefinition Width="403*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="155,56,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="1"/>
-                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="149,211,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="1"/>
-                <Button x:Name="UPlay" Content="Start" HorizontalAlignment="Left" Margin="83,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play" Grid.Column="1"/>
-                <Button x:Name="UPause" Content="Pause" HorizontalAlignment="Left" Margin="183,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause" Grid.Column="1"/>
-                <Button x:Name="USTop" Content="Stop" HorizontalAlignment="Left" Margin="285,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop" Grid.Column="1"/>
-                <Button x:Name="SPlay" Content="Start" HorizontalAlignment="Left" Margin="83,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play" Grid.Column="1"/>
-                <Button x:Name="SPause" Content="Pause" HorizontalAlignment="Left" Margin="184,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause" Grid.Column="1"/>
-                <Button x:Name="SStop" Content="Stop" HorizontalAlignment="Left" Margin="285,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop" Grid.Column="1"/>
+                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="155,56,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="3"  Foreground="#BD1E1E"/>
+                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="149,211,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="3" Foreground="#BD1E1E"/>
+                <Button x:Name="UPlay" Content="Start" HorizontalAlignment="Left" Margin="83,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play" Grid.Column="3" Background="#18206F" Foreground="#BD1E1E"/>
+                <Button x:Name="UPause" Content="Pause" HorizontalAlignment="Left" Margin="183,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause" Grid.Column="3" Background="#18206F" Foreground="#BD1E1E"/>
+                <Button x:Name="USTop" Content="Stop" HorizontalAlignment="Left" Margin="285,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop" Grid.Column="3" Background="#18206F" Foreground="#BD1E1E"/>
+                <Button x:Name="SPlay" Content="Start" HorizontalAlignment="Left" Margin="83,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play" Grid.Column="3" Background="#18206F" Foreground="#BD1E1E"/>
+                <Button x:Name="SPause" Content="Pause" HorizontalAlignment="Left" Margin="184,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause" Grid.Column="3" Background="#18206F" Foreground="#BD1E1E"/>
+                <Button x:Name="SStop" Content="Stop" HorizontalAlignment="Left" Margin="285,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop" Grid.Column="3" Background="#18206F" Foreground="#BD1E1E"/>
 
-                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow" Grid.ColumnSpan="2">
+                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow" Grid.ColumnSpan="4" Background="RoyalBlue" Foreground="#BD1E1E">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="Save_Name" Header="Save_Name" IsReadOnly="True" Binding="{Binding Path=Save_Name}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Source" Header="Source" IsReadOnly="True" Binding="{Binding Path=Save_Src}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Destination" Header="Destination" IsReadOnly="True"  Binding="{Binding Path=Save_Dest}" Width="100"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="321,359,0,0" VerticalAlignment="Top" Width="69" Grid.Column="1"/>
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="321,359,0,0" VerticalAlignment="Top" Width="69" Grid.Column="3"/>
 
             </Grid>
         </TabItem>
-        <TabItem x:Name="tab3" Header="Settings" Margin="135,-2,-213,-19">
-            <Grid Background="#FFE5E5E5">
+        <TabItem x:Name="tab3" Header="Settings" Margin="135,-2,-213,-19" Background="#FFD88373">
+            <Grid Background="#F5E2C8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="37*"/>
                     <ColumnDefinition Width="360*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="2,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french">
+                <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Foreground="#FFBD1E1E"/>
+                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="2,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french" BorderThickness="0,0,0,0">
                     <Button.Background>
                         <ImageBrush ImageSource="/france.png"></ImageBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False">
+                <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False" BorderThickness="0,0,0,0">
                     <Button.Background>
                         <ImageBrush ImageSource="/english.png"></ImageBrush>
                     </Button.Background>
                 </Button>
-                <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False" Background="#FFF5E2C8" Foreground="#BD1E1E"/>
                 <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,355,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
                 <Image HorizontalAlignment="Left" Height="59" Margin="56,23,0,0" VerticalAlignment="Top" Width="60" Source="/language.png" Grid.ColumnSpan="2"/>
                 <Image HorizontalAlignment="Left" Height="60" Margin="24,202,0,0" VerticalAlignment="Top" Width="50" Source="/crypted.png" RenderTransformOrigin="-3.181,0.489"/>
