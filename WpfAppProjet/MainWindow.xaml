@@ -6,21 +6,22 @@
         xmlns:local="clr-namespace:WpfAppProjet"
         mc:Ignorable="d"
         Title="EasySave" Height="450" Width="800" Icon="/icon.png" Background="#F5E2C8">
-    <TabControl>
+    <TabControl Background="#FFF5E2C8">
         <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20" Background="#FFD88373" Foreground="#18206F">
             <Grid Background="#F5E2C8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="81*"/>
                     <ColumnDefinition Width="185*"/>
-                    <ColumnDefinition Width="528*"/>
+                    <ColumnDefinition Width="376*"/>
+                    <ColumnDefinition Width="152*"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="337,73,0,0" VerticalAlignment="Top" Height="48" Width="158" Click="Button_create" Grid.Column="2" Background="#17255A" Foreground="#BD1E1E"/>
+                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="337,73,0,0" VerticalAlignment="Top" Height="48" Width="158" Click="Button_create" Grid.Column="2" Background="#17255A" Foreground="#BD1E1E" Grid.ColumnSpan="2"/>
                 <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="37,73,49,266" Grid.ColumnSpan="2" Background="MidnightBlue" Foreground="#BD1E1E"/>
                 <TextBox x:Name="txtEditor_source" Margin="16,160,28,202" IsEnabled="False" Background="RoyalBlue" Grid.ColumnSpan="2" />
-                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="50,73,268,266" Grid.Column="2" RenderTransformOrigin="0.445,0.505" Background="#17255A" Foreground="#BD1E1E"/>
-                <TextBox x:Name="txtEditor_dest" Margin="22,160,239,202" IsEnabled="False" Grid.Column="2" Background="RoyalBlue" />
+                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="50,73,116,266" Grid.Column="2" RenderTransformOrigin="0.445,0.505" Background="#17255A" Foreground="#BD1E1E"/>
+                <TextBox x:Name="txtEditor_dest" Margin="22,160,87,202" IsEnabled="False" Grid.Column="2" Background="RoyalBlue" />
                 <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,353,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
-                <Button Grid.Column="2" HorizontalAlignment="Left" Margin="387,299,0,0" VerticalAlignment="Top" Height="79" Width="108" Click="Button_Click">
+                <Button Grid.Column="3" HorizontalAlignment="Left" Margin="11,299,0,0" VerticalAlignment="Top" Height="79" Width="108" Click="Button_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="/ProSoft.png"></ImageBrush>
                     </Button.Background>
