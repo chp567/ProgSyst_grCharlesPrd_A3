@@ -22,6 +22,8 @@ using Newtonsoft.Json;
 using System.Threading;
 using WpfAppProjet.Model;
 using System.Diagnostics;
+using WpfAppProjet.ViewModel;
+using System.Net.Sockets;
 
 namespace WpfAppProjet
 {
@@ -32,6 +34,7 @@ namespace WpfAppProjet
     {
         public string destination;
         public string src;
+        public string extension;
         int i = 0;
         
         public MainWindow()
@@ -141,6 +144,7 @@ namespace WpfAppProjet
             return element.Tag.ToString();
         }
 
+        bool Checked;
         private void Button_unique_play(object sender, RoutedEventArgs e)
         {
             Process[] process = Process.GetProcessesByName("calculator");
@@ -150,6 +154,17 @@ namespace WpfAppProjet
             }
             else
             {
+                if (Encrypt.IsChecked is true)
+                {
+                     Checked = true;
+                    /*Crypt encryption = new Crypt();
+                    encryption.Encrypt(destination, extensions);*/
+                }
+                else
+                {
+                    Checked = false;
+                }
+
                 _Inputs inp1 = new _Inputs();
 
                 var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
@@ -190,21 +205,12 @@ namespace WpfAppProjet
                             }
 
                             Data copy = new Data();
-                            copy.Copy(src, dest, name);
+                            copy.Copy(src, dest, name, Checked, extensions, dest_sequential, server_started);
                         }
                         else if (Name == null)
                         {
 
                         }
-                    }
-                    if (Encrypt.IsChecked is true)
-                    {
-                        Crypt encryption = new Crypt();
-                        encryption.Encrypt(destination);
-                    }
-                    else
-                    {
-
                     }
                 }
             }
@@ -274,57 +280,22 @@ namespace WpfAppProjet
                         }
 
                         Data copy = new Data();
-                        copy.Copy(src, dest, name);
+                        copy.Copy(src, dest, name, Checked, extensions, dest_sequential, server_started);
                     }
 
-                    List<string> dest_ = new List<string>();
-                    foreach (var item in array)
-                    {
-                        //Console.WriteLine("{0}\n {1}\n {2}", item.SaveName, item.Source, item.Target);
-                        string source = item.Source;
-                        //MessageBox.Show(source);
-                        string destination = item.Target;
-                        //MessageBox.Show(destination);
-                        string savename = item.SaveName;
-                        //MessageBox.Show(savename);
-                        inp1.Source(source);
-                        inp1.Destination(destination);
-                        inp1.SetName(savename);
-                        string dest = inp1.GetDest();
-                        string src = inp1.GetSource();
-                        string name = inp1.GetName();
-
-                        Logs log = new Logs();
-                        string path = projectDirectory + @"\temp\logIRT.json";
-                        if (File.Exists(path))
-                        {
-
-                        }
-                        else
-                        {
-                            log.CreateLogI(path);
-                        }
-                        Data copy = new Data();
-                        copy.Copy(src, dest, name);
-                        /*foreach (string dirs in Directory.GetDirectories(dest, "*"))
-                        {
-                            //MessageBox.Show(dirs);
-                            dest_.Add(dirs);
-                        }*/
-                    }
-                    if (Encrypt.IsChecked is true)
+                    /*if (Encrypt.IsChecked is true)
                     {
                         Crypt encryption = new Crypt();
                         foreach (string dest in dest_sequential)
                         {
-                            encryption.Encrypt(dest);
+                            encryption.Encrypt(dest, extensions);
                         }
 
                     }
                     else
                     {
 
-                    }
+                    }*/
 
                 }
             }    
@@ -365,6 +336,9 @@ namespace WpfAppProjet
             tab1.Header = "Création de sauvegarde";
             Tab2.Header = "Gestion de sauvegarde";
             tab3.Header = "Paramètres";
+            Encrypt.Content = "Crypté";
+            add.Content = "Ajouter";
+            Select.Content = "Selectionner";
             FR.IsEnabled = false;
             EN.IsEnabled = true;
         }
@@ -388,6 +362,9 @@ namespace WpfAppProjet
             tab1.Header = "Save Setup";
             Tab2.Header = "Save Worker";
             tab3.Header = "Settings";
+            Encrypt.Content = "Crypted";
+            add.Content = "Add";
+            Select.Content = "Select";
             FR.IsEnabled = true;
             EN.IsEnabled = false;
         }
@@ -409,6 +386,55 @@ namespace WpfAppProjet
             }
 
             //MessageBox.Show("changer");
+        }
+
+        //button extensions
+        private void ExtensionAdd(object sender, RoutedEventArgs e)
+        {
+            ListBox.Items.Add(Extension.Text.Insert(0,"."));
+        }
+
+        List<string> extensions = new List<string>();
+
+        private void Selected_ext(object sender, RoutedEventArgs e)
+        {
+            string extension = ListBox.Items[ListBox.Items.IndexOf(ListBox.SelectedItem)].ToString();
+            extensions.Add(extension);
+            //this.extension = extension;
+            UPlay.IsEnabled = true;
+            SPlay.IsEnabled = true;
+        }
+
+        private void Encrypt_Checked(object sender, RoutedEventArgs e)
+        {
+            UPlay.IsEnabled = false;
+            SPlay.IsEnabled = false;
+        }
+
+        private void Encrypt_Unchecked(object sender, RoutedEventArgs e)
+        {
+            UPlay.IsEnabled = true;
+            SPlay.IsEnabled = true;
+        }
+
+        //Server s1 = new Server();
+        //Socket ClientCon;
+        bool server_started = false;
+        private void ServerConnect_Click(object sender, RoutedEventArgs e)
+        {
+            server_started = true;
+
+            /*Socket ServerCon = s1.ServerConnect();
+
+            ClientCon = s1.ClientConnect(ServerCon);
+
+            s1.NetworkListener(ClientCon);*/
+        }
+
+        private void ServerDisconnect_Click(object sender, RoutedEventArgs e)
+        {
+            server_started = false;
+            //s1.Disconnecting(ClientCon);
         }
     }
 }

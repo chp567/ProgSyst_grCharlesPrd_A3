@@ -52,7 +52,13 @@
                 <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
                 <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french"/>
                 <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False"/>
-                <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False"/>
+                <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False" Checked="Encrypt_Checked" Unchecked="Encrypt_Unchecked"/>
+                <ListBox x:Name="ListBox" Grid.Column="1" Margin="273,100,10,10"/>
+                <TextBox x:Name="Extension" Grid.Column="1" HorizontalAlignment="Left" Margin="273,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="add" Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="420,66,0,0" VerticalAlignment="Top" Click="ExtensionAdd"/>
+                <Button x:Name="Select" Content="Select" Grid.Column="1" HorizontalAlignment="Left" Margin="472,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Selected_ext"/>
+                <Button x:Name="ServerConnect" Content="Server Connect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="25" Margin="20,309,0,0" VerticalAlignment="Top" Width="90" Click="ServerConnect_Click"/>
+                <Button x:Name="ServerDisconnect" Content="Server Disconnect" Grid.Column="1" HorizontalAlignment="Left" Margin="98,309,0,0" VerticalAlignment="Top" Click="ServerDisconnect_Click"/>
 
             </Grid>
         </TabItem>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Cryptosoft
 {
@@ -26,27 +27,35 @@ namespace Cryptosoft
         
         static void Main(string[] args)
         {
-            string type = args[1];
-            string d;
-            string chemin = args[0].ToString();
-            d = "6";
-            //Console.WriteLine(chemin);
-            int decalage = Int32.Parse(d);
-            //Console.WriteLine("chemin du fichier");
-            //chemin = Console.ReadLine();
-
-            if (type == "cesar")
+            try
             {
-                string word = File.ReadAllText(@chemin);
-                File.WriteAllText(@chemin, Cesar(word, decalage));
-            }
-            else if (type == "uncesar")
-            {
-                string word = File.ReadAllText(@chemin);
-                File.WriteAllText(@chemin, Cesar(word, decalage * -1));
-            }
+                string type = args[1];
+                string d;
+                string chemin = args[0].ToString();
+                d = "6";
+                //Console.WriteLine(chemin);
+                int decalage = Int32.Parse(d);
+                //Console.WriteLine("chemin du fichier");
+                //chemin = Console.ReadLine();
 
-            //Console.WriteLine(Cesar(word, decalage));
+                if (type == "cesar")
+                {
+                    string word = File.ReadAllText(@chemin);
+                    File.WriteAllText(@chemin, Cesar(word, decalage));
+                }
+                else if (type == "uncesar")
+                {
+                    string word = File.ReadAllText(@chemin);
+                    File.WriteAllText(@chemin, Cesar(word, decalage * -1));
+                }
+
+                //Console.WriteLine(Cesar(word, decalage));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("");
+            }
+            
         }
     }
 }
