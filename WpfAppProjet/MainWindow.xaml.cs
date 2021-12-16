@@ -68,7 +68,6 @@ namespace WpfAppProjet
             if (openFileDialog.ShowDialog() == true)
                 txtEditor_source.Text = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
             SetSrc();
-            //string src = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
         }
 
         private void btnOpenFile_dest(object sender, RoutedEventArgs e)
@@ -82,7 +81,6 @@ namespace WpfAppProjet
             if (openFileDialog.ShowDialog() == true)
                 txtEditor_dest.Text = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
             SetDest();
-            //string dest = System.IO.Path.GetDirectoryName(openFileDialog.FileName);
         }
 
         List<SaveWork> SWork = new List<SaveWork>();
@@ -91,8 +89,6 @@ namespace WpfAppProjet
         List<string> dest_sequential = new List<string>();
         private void Button_create(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("create");
-
             this.i += 1;
             string name = "Save";
             name += " " + i.ToString();
@@ -101,12 +97,6 @@ namespace WpfAppProjet
             SaveGrid.Items.Add(data);
             src = src.Replace(@"\", "/");
             destination = destination.Replace(@"\", "/");
-            /*
-            var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
-            string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
-
-            MessageBox.Show(projectDirectory+@"\temp\log.json");
-            */
 
             SaveWork u1 = new SaveWork
             {
@@ -157,8 +147,6 @@ namespace WpfAppProjet
                 if (Encrypt.IsChecked is true)
                 {
                      Checked = true;
-                    /*Crypt encryption = new Crypt();
-                    encryption.Encrypt(destination, extensions);*/
                 }
                 else
                 {
@@ -187,11 +175,9 @@ namespace WpfAppProjet
                             inp1.Source(source);
                             inp1.Destination(destination);
                             inp1.SetName(savename);
-                            //MessageBox.Show("uplay");
                             string dest = inp1.GetDest();
                             string src = inp1.GetSource();
                             string name = inp1.GetName();
-                            //MessageBox.Show(dest + " " + src + " " + name);
                             Logs log = new Logs();
 
                             string path = projectDirectory + @"\temp\logIRT.json";
@@ -230,8 +216,6 @@ namespace WpfAppProjet
             System.Diagnostics.Process.Start("cmd.exe", $"/c taskkill /IM WpfAppProjet.exe");
         }
 
-        /////////////////////////////////////////////////////////////////////
-
         private void Button_multiple_play(object sender, RoutedEventArgs e)
         {
             Process[] process = Process.GetProcessesByName("calculator");
@@ -242,7 +226,6 @@ namespace WpfAppProjet
             else
             {
                 _Inputs inp1 = new _Inputs();
-                //MessageBox.Show("mplay");
 
                 var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
                 string projectDirectory = currentDirectory.Parent.Parent.Parent.FullName;
@@ -254,13 +237,9 @@ namespace WpfAppProjet
                     dynamic array = JsonConvert.DeserializeObject(json);
                     foreach (var item in array)
                     {
-                        //Console.WriteLine("{0}\n {1}\n {2}", item.SaveName, item.Source, item.Target);
                         string source = item.Source;
-                        //MessageBox.Show(source);
                         string destination = item.Target;
-                        //MessageBox.Show(destination);
                         string savename = item.SaveName;
-                        //MessageBox.Show(savename);
                         inp1.Source(source);
                         inp1.Destination(destination);
                         inp1.SetName(savename);
@@ -282,26 +261,9 @@ namespace WpfAppProjet
                         Data copy = new Data();
                         copy.Copy(src, dest, name, Checked, extensions, dest_sequential, server_started);
                     }
-
-                    /*if (Encrypt.IsChecked is true)
-                    {
-                        Crypt encryption = new Crypt();
-                        foreach (string dest in dest_sequential)
-                        {
-                            encryption.Encrypt(dest, extensions);
-                        }
-
-                    }
-                    else
-                    {
-
-                    }*/
-
                 }
             }    
         }
-        
-
         
         private void Button_multiple_pause(object sender, RoutedEventArgs e)
         {
@@ -384,8 +346,6 @@ namespace WpfAppProjet
                     serializer.Serialize(jsonWriter, JsonConvert.DeserializeObject(jsonString));
                 }
             }
-
-            //MessageBox.Show("changer");
         }
 
         //button extensions
@@ -400,7 +360,6 @@ namespace WpfAppProjet
         {
             string extension = ListBox.Items[ListBox.Items.IndexOf(ListBox.SelectedItem)].ToString();
             extensions.Add(extension);
-            //this.extension = extension;
             UPlay.IsEnabled = true;
             SPlay.IsEnabled = true;
         }
@@ -417,24 +376,15 @@ namespace WpfAppProjet
             SPlay.IsEnabled = true;
         }
 
-        //Server s1 = new Server();
-        //Socket ClientCon;
         bool server_started = false;
         private void ServerConnect_Click(object sender, RoutedEventArgs e)
         {
             server_started = true;
-
-            /*Socket ServerCon = s1.ServerConnect();
-
-            ClientCon = s1.ClientConnect(ServerCon);
-
-            s1.NetworkListener(ClientCon);*/
         }
 
         private void ServerDisconnect_Click(object sender, RoutedEventArgs e)
         {
             server_started = false;
-            //s1.Disconnecting(ClientCon);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
