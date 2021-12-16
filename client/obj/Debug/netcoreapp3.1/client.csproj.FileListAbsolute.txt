@@ -1,0 +1,13 @@
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\bin\Debug\netcoreapp3.1\client.exe
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\bin\Debug\netcoreapp3.1\client.deps.json
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\bin\Debug\netcoreapp3.1\client.runtimeconfig.json
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\bin\Debug\netcoreapp3.1\client.runtimeconfig.dev.json
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\bin\Debug\netcoreapp3.1\client.dll
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\bin\Debug\netcoreapp3.1\client.pdb
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\obj\Debug\netcoreapp3.1\client.csprojAssemblyReference.cache
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\obj\Debug\netcoreapp3.1\client.AssemblyInfoInputs.cache
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\obj\Debug\netcoreapp3.1\client.AssemblyInfo.cs
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\obj\Debug\netcoreapp3.1\client.csproj.CoreCompileInputs.cache
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\obj\Debug\netcoreapp3.1\client.dll
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\obj\Debug\netcoreapp3.1\client.pdb
+C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\client\obj\Debug\netcoreapp3.1\client.genruntimeconfig.cache
