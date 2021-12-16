@@ -47,7 +47,6 @@ namespace Projet_progsys
             double time = ts.TotalMilliseconds;
             String times = time.ToString();
             times = times.Replace(',', '.');
-            //Console.WriteLine("Elapsed Time is {0} ms", time);
             return times;
         }
 

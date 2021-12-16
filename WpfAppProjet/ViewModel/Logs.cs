@@ -235,8 +235,6 @@ namespace Projet_progsys
             + $"{Environment.NewLine}"
             + "},";
 
-                //Console.WriteLine(log);
-                //MessageBox.Show(log);
                 string text = File.ReadAllText(path);
                 string log1 = GetLogI();
                 text = text.Replace( log1, log);
@@ -267,7 +265,6 @@ namespace Projet_progsys
             + $"{Environment.NewLine}"
             + "},";
 
-            //Console.WriteLine(log1);
             string text = File.ReadAllText(path);
             log = GetLogI();
             text = text.Replace(log, log1);

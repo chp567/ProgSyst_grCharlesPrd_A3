@@ -18,7 +18,6 @@ namespace WpfAppProjet.Model
         public void Encrypt(List<string> extensions, string destination)
         {
             List<string> Encrypted = new List<string>();
-            //Encrypted.Add("");
             bool flag = true;
             var currentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
             string projectDirectory = currentDirectory.Parent.Parent.Parent.Parent.FullName;
@@ -30,9 +29,6 @@ namespace WpfAppProjet.Model
 
                         foreach (string newPath in Directory.GetFiles(destination, $"*{extension}", SearchOption.AllDirectories))
                         {
-
-
-                                //MessageBox.Show("encrypted : " + item +"\n" + "NewPath : "+ newPath);
                                 type = "cesar";
 
                                 ProcessStartInfo cryptosoft = new ProcessStartInfo();
@@ -44,16 +40,6 @@ namespace WpfAppProjet.Model
 
             }
         }
-
-        /*public void Decrypt(string path)
-        {
-            type = "uncesar";
-
-            ProcessStartInfo cryptosoft = new ProcessStartInfo();
-            cryptosoft.FileName = @"C:\Users\Hanton\Documents\GitHub\Projet_Web\ProgSyst_grCharlesPrd_A3\Cryptosoft\Cryptosoft\bin\Debug\netcoreapp3.1\Cryptosoft.exe";
-            cryptosoft.Arguments = "\"" + $"{path}" + "\"" + $" {type}";
-            Process.Start(cryptosoft);
-        }*/
 
         public string GetFileEncryptionTime()
         {
@@ -67,7 +53,6 @@ namespace WpfAppProjet.Model
             double time = ts.TotalMilliseconds;
             String times = time.ToString();
             times = times.Replace(',', '.');
-            //Console.WriteLine("Elapsed Time is {0} ms", time);
             return times;
 
         }

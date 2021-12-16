@@ -14,7 +14,6 @@ namespace WpfAppProjet.ViewModel
         {
             IPHostEntry host = Dns.GetHostEntry("localhost");
             IPAddress ipAddress = host.AddressList[1];
-            //Console.WriteLine(ipAddress);
             IPEndPoint Local = new IPEndPoint(ipAddress, 11000);
 
             try
@@ -25,15 +24,10 @@ namespace WpfAppProjet.ViewModel
 
                 server.Listen(100);
 
-                //Console.WriteLine("Waiting for a connection");
-
                 return server;
             }
             catch (Exception e)
             {
-
-                //Console.WriteLine(e.ToString());
-
                 return null;
             }
         }
@@ -51,14 +45,10 @@ namespace WpfAppProjet.ViewModel
                 string ClientIP = ClientInfo.Address.ToString();
                 string ClientPort = ClientInfo.Port.ToString();
 
-                //Console.WriteLine(ClientIP + "\n" + ClientPort);
-
                 return client;
             }
             catch (Exception e)
             {
-
-                //Console.WriteLine(e.ToString());
                 return null;
             }
         }
@@ -83,11 +73,7 @@ namespace WpfAppProjet.ViewModel
                     {
                         recv = client.Receive(data);
 
-                        //Console.WriteLine("Client: " + Encoding.UTF8.GetString(data, 0, recv));
-
                         input = log;
-
-                        //Console.WriteLine("Server : " + input);
 
                         client.Send(Encoding.UTF8.GetBytes(input));
                     }
@@ -96,33 +82,13 @@ namespace WpfAppProjet.ViewModel
                 }
                 catch (SocketException e)
                 {
-                    //Console.WriteLine("Error receiving data.");
+
                 }
             }
-            /*
-            //données du client
-            string data = null;
-            byte[] bytes = null;
-
-            while (true)
-            {
-                bytes = new byte[1024];
-                int bytesRec = client.Receive(bytes);
-                data += Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                if (data.IndexOf("<EOF>") > -1)
-                {
-                    break;
-                }
-                Console.WriteLine($"Client : {data}");
-
-                byte[] msg = Encoding.ASCII.GetBytes(data);
-                client.Send(msg);
-            }*/
         }
 
         public void Disconnecting(Socket socket)
         {
-            //socket.Shutdown(SocketShutdown.Both);
             socket.Close();
         }
     }

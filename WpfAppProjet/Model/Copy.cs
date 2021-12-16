@@ -39,7 +39,6 @@ namespace Projet_progsys
                     if (size.Length < 1000000000)
                     {
                         File.Copy(newPath, newPath.Replace(src, dest), true);
-                        //MessageBox.Show(newPath + "\n" + newPath.Replace(src, dest));
                         Logs log1 = new Logs();
                         _File file1 = new _File();
 
@@ -53,8 +52,6 @@ namespace Projet_progsys
                         string transferttime = file1.GetTranfertTime();
 
                         string time = file1.Gettime();
-
-                        //MessageBox.Show(filenamesource + "\n" + filenametarget + "\n" + fSize + "\n" + transferttime + "\n" + time);
 
                         log1.LogD(name, filenamesource, filenametarget, fSize, transferttime, time, Checked, extensions, destination);
 
