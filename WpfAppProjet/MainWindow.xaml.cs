@@ -439,8 +439,15 @@ namespace WpfAppProjet
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("ceci est un easter egg");
-            Miss.Visibility = Visibility.Visible;
+            if (Miss.IsVisible)
+            {
+                Miss.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                MessageBox.Show("ceci est un easter egg");
+                Miss.Visibility = Visibility.Visible;
+            }
         }
     }
 }
