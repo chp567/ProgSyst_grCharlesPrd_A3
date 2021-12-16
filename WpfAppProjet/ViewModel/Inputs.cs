@@ -12,6 +12,7 @@ namespace Projet_progsys
 
         public string Source(string source)
         {
+            //set source
             string src = source;
             this.src = src;
             return this.src;
@@ -19,6 +20,7 @@ namespace Projet_progsys
 
         public string Destination(string destination)
         {
+            //set destination
             string dest = destination;
             this.dest = dest;
             return this.dest;
@@ -26,22 +28,26 @@ namespace Projet_progsys
 
         public string GetSource()
         {
+            //get source
             return this.src;
         }
 
         public string GetDest()
         {
+            //get destination
             return this.dest;
         }
         
         public string SetName(string name)
         {
+            //set name
             this.name = name;
             return this.name;
         }
 
         public string GetName()
         {
+            //get name
             return this.name;
         }
     }

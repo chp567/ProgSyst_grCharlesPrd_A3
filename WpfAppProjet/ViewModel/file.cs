@@ -50,7 +50,7 @@ namespace Projet_progsys
             return times;
         }
 
-        public string Gettime()
+        public string Gettime() //get the time when the copy is done 
         {
             DateTime localDate = DateTime.Now;
             String culture = "fr-FR";
@@ -62,7 +62,7 @@ namespace Projet_progsys
 
         static long DirectorySize(DirectoryInfo dInfo, bool includeSubDir)
         {
-            //calculer la taille de la source
+            //find directory
             long totalSize = dInfo.EnumerateFiles()
                          .Sum(file => file.Length);
             if (includeSubDir)
@@ -75,8 +75,7 @@ namespace Projet_progsys
 
         public long Getdirsize(string src)
         {
-
-            //calculer la taille de la source
+            //gets the directory size
             DirectoryInfo dInfo = new DirectoryInfo(src);
             long sizeOfDir = DirectorySize(dInfo, true);
             return sizeOfDir;
@@ -84,12 +83,14 @@ namespace Projet_progsys
 
         public int Getfilesnumber(string src)
         {
+            //gets the file number
             int fCount = Directory.GetFiles(src, "*.*", SearchOption.AllDirectories).Length;
             return fCount;
         }
 
         public int Remainingfiles(int fCount, int i)
         {
+            //gets remaining files
             int filesleft;
             filesleft = fCount - i;
 
@@ -98,6 +99,7 @@ namespace Projet_progsys
 
         public double Progression(int fCount, int i)
         {
+            //gets progression in %
             double progression;
             progression = ((double)i / (double)fCount) * 100;
             return progression;

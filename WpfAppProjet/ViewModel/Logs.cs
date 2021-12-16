@@ -13,8 +13,10 @@ namespace Projet_progsys
 {
     class Logs
     {
+        //variable log
         private string log;
         private string log1;
+        //encryption time
         string ETime;
 
         public void LogD(string name, string filenamesource, string filenametarget, long fSize, string transferttime, string time, bool Checked, List<string> extensions, List<string> destinations) //daily log
@@ -120,7 +122,7 @@ namespace Projet_progsys
 
         }
 
-        public string SetLog1(string name)
+        public string SetLog1(string name) //set the Log1 variable
         {
             string logpattern = $"{ Environment.NewLine}"
             + "{"
@@ -147,7 +149,7 @@ namespace Projet_progsys
             return this.log1;
         }
 
-        public string SetLog(string name, string filenamesource, string filenametarget, string state, double sizedir, int filecount, int Lfile, double progression)
+        public string SetLog(string name, string filenamesource, string filenametarget, string state, double sizedir, int filecount, int Lfile, double progression) //set the Log variable
         {
             string logpattern = $"{ Environment.NewLine}"
             + "{"
@@ -174,12 +176,12 @@ namespace Projet_progsys
             return this.log;
         }
 
-        public string Getlog()
+        public string Getlog() //get the log1 variable
         {
             return this.log1;
         }
 
-        public string SetLogI(string name, string filenamesource, string filenametarget, string state, double sizedir, int filecount, int Lfile, double progression, string path)
+        public string SetLogI(string name, string filenamesource, string filenametarget, string state, double sizedir, int filecount, int Lfile, double progression, string path) //set the Log variable
         {
             string log = $"{ Environment.NewLine}"
             + "{"
@@ -206,13 +208,13 @@ namespace Projet_progsys
             return this.log;
         }
 
-        public string GetLogI()
+        public string GetLogI() //get the Log variable
         {
             return this.log;
         }
 
 
-        public string UpdateLogI(string name, string filenamesource, string filenametarget, string state, double sizedir, int filecount, int Lfile, double progression, string path)
+        public string UpdateLogI(string name, string filenamesource, string filenametarget, string state, double sizedir, int filecount, int Lfile, double progression, string path) //update the Log variable
         {
             string log = $"{ Environment.NewLine}"
             + "{"
@@ -242,7 +244,7 @@ namespace Projet_progsys
             return log;
         }
 
-        public string UpdateLogIEnd(string log , string name, string path)
+        public string UpdateLogIEnd(string log , string name, string path) //last update of the Log variable
         {
             string log1 = $"{ Environment.NewLine}"
             + "{"

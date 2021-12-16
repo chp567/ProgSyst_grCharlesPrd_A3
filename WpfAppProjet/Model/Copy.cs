@@ -14,8 +14,9 @@ namespace Projet_progsys
 {
     class Data
     {
-
+        //list used for socket purpose
         List<string> logs = new List<string>();
+        //variable used for the socket connection
         Server s1 = new Server();
         Socket ClientCon;
 
@@ -56,7 +57,6 @@ namespace Projet_progsys
                         log1.LogD(name, filenamesource, filenametarget, fSize, transferttime, time, Checked, extensions, destination);
 
                         //In real time log handling
-                        //depending on the save work use a one of the loop
                         string path = newPath;
 
                         filenamesource = file1.GetFilenamesrc(newPath);
@@ -77,10 +77,10 @@ namespace Projet_progsys
                     }
                     else
                     {
-                        MessageBox.Show(size.Name + "> 1Go");
+                        MessageBox.Show(size.Name + "> 1Go"); //MessageBox saying that the file is too heavy
                     }
                 }
-                if (server_started is true)
+                if (server_started is true) //socket creation and sending the logs to the client
                 {
                     Socket ServerCon = s1.ServerConnect();
 
@@ -95,11 +95,10 @@ namespace Projet_progsys
                 {
 
                 }
-
             }
             catch (IOException iox)
             {
-                Console.WriteLine(iox.Message);
+
             }
         }
     }

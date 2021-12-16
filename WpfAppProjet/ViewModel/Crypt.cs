@@ -12,10 +12,9 @@ namespace WpfAppProjet.Model
 {
     class Crypt
     {
-        public string type;
-        //public string dest;
+        public string type; //variable type only used for crypting
 
-        public void Encrypt(List<string> extensions, string destination)
+        public void Encrypt(List<string> extensions, string destination) //encrypts the data
         {
             List<string> Encrypted = new List<string>();
             bool flag = true;
@@ -41,7 +40,7 @@ namespace WpfAppProjet.Model
             }
         }
 
-        public string GetFileEncryptionTime()
+        public string GetFileEncryptionTime() //get file encryption time
         {
             DateTime start = DateTime.Now;
             DateTime end = DateTime.Now;

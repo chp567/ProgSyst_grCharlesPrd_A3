@@ -10,7 +10,7 @@ namespace WpfAppProjet.ViewModel
 {
     class Server
     {
-        public Socket ServerConnect()
+        public Socket ServerConnect() //prepare the server connection
         {
             IPHostEntry host = Dns.GetHostEntry("localhost");
             IPAddress ipAddress = host.AddressList[1];
@@ -32,7 +32,7 @@ namespace WpfAppProjet.ViewModel
             }
         }
 
-        public Socket ClientConnect(Socket socket)
+        public Socket ClientConnect(Socket socket) //connect the client
         {
 
             try
@@ -53,7 +53,7 @@ namespace WpfAppProjet.ViewModel
             }
         }
 
-        public void NetworkListener(Socket client, List<string> logs)
+        public void NetworkListener(Socket client, List<string> logs) //listen the network to see if message is sent
         {
             string input; int recv;
             string welcome = "Bienvenue sur le serveur ...";
@@ -87,7 +87,7 @@ namespace WpfAppProjet.ViewModel
             }
         }
 
-        public void Disconnecting(Socket socket)
+        public void Disconnecting(Socket socket) //disconnect the server
         {
             socket.Close();
         }
