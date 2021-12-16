@@ -436,5 +436,11 @@ namespace WpfAppProjet
             server_started = false;
             //s1.Disconnecting(ClientCon);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ceci est un easter egg");
+            Miss.Visibility = Visibility.Visible;
+        }
     }
 }

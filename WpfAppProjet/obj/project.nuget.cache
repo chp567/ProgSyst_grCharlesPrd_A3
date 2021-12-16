@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ao0a0dQZpB4w/EvlyDRf7LtLfLXnW1NvOVGmO5eGFhT0UrdcomkdpApjrBDdJDbYGmBMvKT9wnvjBVczw6Xiag==",
+  "dgSpecHash": "uObEy3HHgHprltmeW/ysxcWTLa0Nysm5vxlSJhY5NRiTLnOlMdhjqP88NLI2pchBiIv1lyAaCdxt9MF3QJHX5w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Hanton\\Documents\\GitHub\\Projet_Web\\ProgSyst_grCharlesPrd_A3\\WpfAppProjet\\WpfAppProjet.csproj",
+  "projectFilePath": "C:\\Users\\casse\\Documents\\GitHub\\ProgSyst_grCharlesPrd_A3\\WpfAppProjet\\WpfAppProjet.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Hanton\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\casse\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

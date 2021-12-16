@@ -5,61 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppProjet"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <TabControl>
-        <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20">
-            <Grid Background="#FFE5E5E5">
-                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="603,82,0,0" VerticalAlignment="Top" Height="47" Width="158" Click="Button_create"/>
-
-
-                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="82,73,622,266"/>
-                <TextBox x:Name="txtEditor_source" Margin="16,160,556,202" IsEnabled="False" />
-                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="376,73,328,266"/>
-                <TextBox x:Name="txtEditor_dest" Margin="288,160,239,202" IsEnabled="False" />
-
+        Title="EasySave" Height="450" Width="800" Icon="/icon.png" Background="#F5E2C8">
+    <TabControl Background="#FFF5E2C8">
+        <TabItem x:Name="tab1" Header="Save Setup" Margin="-2,-2,-59,-20" Background="#FFD88373" Foreground="#18206F">
+            <Grid Background="#F5E2C8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="81*"/>
+                    <ColumnDefinition Width="185*"/>
+                    <ColumnDefinition Width="376*"/>
+                    <ColumnDefinition Width="152*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="create_button" Content="Create" HorizontalAlignment="Left" Margin="337,73,0,0" VerticalAlignment="Top" Height="48" Width="158" Click="Button_create" Grid.Column="2" Background="#17255A" Foreground="Red" Grid.ColumnSpan="2"/>
+                <Button x:Name="btnOpenFile_s" Click="btnOpenFile_source" Content="Source" Margin="37,73,49,266" Grid.ColumnSpan="2" Background="MidnightBlue" Foreground="Red"/>
+                <TextBox x:Name="txtEditor_source" Margin="16,160,28,202" IsEnabled="False" Background="RoyalBlue" Grid.ColumnSpan="2" />
+                <Button x:Name="btnOpenFile_d" Click="btnOpenFile_dest" Content="Destination" Margin="50,73,116,266" Grid.Column="2" RenderTransformOrigin="0.445,0.505" Background="#17255A" Foreground="Red"/>
+                <TextBox x:Name="txtEditor_dest" Margin="22,160,87,202" IsEnabled="False" Grid.Column="2" Background="RoyalBlue" />
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,353,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
+                <Button Grid.Column="3" HorizontalAlignment="Left" Margin="11,299,0,0" VerticalAlignment="Top" Height="79" Width="108" Click="Button_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/ProSoft.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+                <Image Name="Miss" Grid.Column="2" HorizontalAlignment="Left" Height="152" Margin="87,219,0,0" VerticalAlignment="Top" Width="151" Source="/miss.png" Visibility="Hidden"/>
+                <Image Grid.Column="1" HorizontalAlignment="Left" Height="40" Margin="26,28,0,0" VerticalAlignment="Top" Width="44" Source="/source.png"/>
+                <Image Grid.Column="2" HorizontalAlignment="Left" Height="40" Margin="136,28,0,0" VerticalAlignment="Top" Width="40" Source="/target.png"/>
+                <Image Grid.Column="3" HorizontalAlignment="Left" Height="46" Margin="17,22,0,0" VerticalAlignment="Top" Width="48" Source="/create2.png"/>
             </Grid>
         </TabItem>
 
-        <TabItem x:Name="Tab2" Header="Save Worker" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
-            <Grid Background="#FFE5E5E5">
+        <TabItem x:Name="Tab2" Header="Save Worker" Background="#FFD88373" Foreground="#18206F" Margin="58,-2,-136,-19" GotFocus="Tab2_GotFocus" IsEnabled="False">
+            <Grid Background="#F5E2C8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="69*"/>
+                    <ColumnDefinition Width="269*"/>
+                    <ColumnDefinition Width="53*"/>
+                    <ColumnDefinition Width="403*"/>
+                </Grid.ColumnDefinitions>
 
-                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="545,56,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="539,211,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Button x:Name="UPlay" Content="Start" HorizontalAlignment="Left" Margin="473,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play"/>
-                <Button x:Name="UPause" Content="Pause" HorizontalAlignment="Left" Margin="573,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause"/>
-                <Button x:Name="USTop" Content="Stop" HorizontalAlignment="Left" Margin="675,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop"/>
-                <Button x:Name="SPlay" Content="Start" HorizontalAlignment="Left" Margin="473,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play"/>
-                <Button x:Name="SPause" Content="Pause" HorizontalAlignment="Left" Margin="574,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause"/>
-                <Button x:Name="SStop" Content="Stop" HorizontalAlignment="Left" Margin="675,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop"/>
+                <Label x:Name="Usave_placeholder" Content="Unique Save&#xD;&#xA;" HorizontalAlignment="Left" Margin="155,56,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="3"  Foreground="#BD1E1E"/>
+                <Label x:Name="Ssave_placeholder" Content="Sequential save&#xD;&#xA;" HorizontalAlignment="Left" Margin="149,211,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Grid.Column="3" Foreground="#BD1E1E"/>
+                <Button x:Name="UPlay" Content="Start" HorizontalAlignment="Left" Margin="83,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_play" Grid.Column="3" Background="#18206F" Foreground="Red"/>
+                <Button x:Name="UPause" Content="Pause" HorizontalAlignment="Left" Margin="183,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_pause" Grid.Column="3" Background="#18206F" Foreground="Red"/>
+                <Button x:Name="USTop" Content="Stop" HorizontalAlignment="Left" Margin="285,114,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_unique_stop" Grid.Column="3" Background="#18206F" Foreground="Red"/>
+                <Button x:Name="SPlay" Content="Start" HorizontalAlignment="Left" Margin="83,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_play" Grid.Column="3" Background="#18206F" Foreground="Red"/>
+                <Button x:Name="SPause" Content="Pause" HorizontalAlignment="Left" Margin="184,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause" Grid.Column="3" Background="#18206F" Foreground="Red"/>
+                <Button x:Name="SStop" Content="Stop" HorizontalAlignment="Left" Margin="285,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop" Grid.Column="3" Background="#18206F" Foreground="Red"/>
 
-                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow">
+                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow" Grid.ColumnSpan="4" Background="RoyalBlue" Foreground="#BD1E1E">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="Save_Name" Header="Save_Name" IsReadOnly="True" Binding="{Binding Path=Save_Name}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Source" Header="Source" IsReadOnly="True" Binding="{Binding Path=Save_Src}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Destination" Header="Destination" IsReadOnly="True"  Binding="{Binding Path=Save_Dest}" Width="100"></DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="321,359,0,0" VerticalAlignment="Top" Width="69" Grid.Column="3"/>
 
             </Grid>
         </TabItem>
-        <TabItem x:Name="tab3" Header="Settings" Margin="135,-2,-213,-19">
-            <Grid Background="#FFE5E5E5">
+        <TabItem x:Name="tab3" Header="Settings" Margin="135,-2,-213,-19" Background="#FFD88373" Foreground="#18206F">
+            <Grid Background="#F5E2C8">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="37*"/>
                     <ColumnDefinition Width="360*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french"/>
-                <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False"/>
-                <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False" Checked="Encrypt_Checked" Unchecked="Encrypt_Unchecked"/>
-                <ListBox x:Name="ListBox" Grid.Column="1" Margin="273,100,10,10"/>
-                <TextBox x:Name="Extension" Grid.Column="1" HorizontalAlignment="Left" Margin="273,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <Button x:Name="add" Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="420,66,0,0" VerticalAlignment="Top" Click="ExtensionAdd"/>
-                <Button x:Name="Select" Content="Select" Grid.Column="1" HorizontalAlignment="Left" Margin="472,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Selected_ext"/>
-                <Button x:Name="ServerConnect" Content="Server Connect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="25" Margin="20,309,0,0" VerticalAlignment="Top" Width="90" Click="ServerConnect_Click"/>
-                <Button x:Name="ServerDisconnect" Content="Server Disconnect" Grid.Column="1" HorizontalAlignment="Left" Margin="98,309,0,0" VerticalAlignment="Top" Click="ServerDisconnect_Click"/>
-
+                <Label x:Name="Language_placeholder" Content="Language" Grid.Column="1" HorizontalAlignment="Left" Margin="64,36,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Foreground="#FFBD1E1E"/>
+                <Button x:Name="FR" Content="French" Grid.Column="1" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_french" BorderThickness="0,0,0,0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/france.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="EN" Content="English" Grid.Column="1" HorizontalAlignment="Left" Margin="141,100,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_language_english" IsEnabled="False" BorderThickness="0,0,0,0">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/english.png"></ImageBrush>
+                    </Button.Background>
+                </Button>
+                <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False" Checked="Encrypt_Checked" Unchecked="Encrypt_Unchecked" Background="#FFF5E2C8" Foreground="#BD1E1E"/>
+                <ListBox x:Name="ListBox" Grid.Column="1" Margin="273,100,10,10" Background="RoyalBlue" Foreground="#BD1E1E"/>
+                <TextBox x:Name="Extension" Grid.Column="1" HorizontalAlignment="Left" Margin="273,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="RoyalBlue" Foreground="Red"/>
+                <Button x:Name="add" Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="414,66,0,0" VerticalAlignment="Top" Click="ExtensionAdd" Background="#17255A" Foreground="Red" Width="37"/>
+                <Button x:Name="Select" Content="Select" Grid.Column="1" HorizontalAlignment="Left" Margin="472,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Selected_ext" Background="#17255A" Foreground="red" Width="53"/>
+                <Button x:Name="ServerConnect" Content="Server Connect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="25" Margin="20,309,0,0" VerticalAlignment="Top" Width="95" Click="ServerConnect_Click" Background="#17255A" Foreground="Red"/>
+                <Button x:Name="ServerDisconnect" Content="Server Disconnect" Grid.Column="1" HorizontalAlignment="Left" Margin="98,309,0,0" VerticalAlignment="Top" Click="ServerDisconnect_Click" Background="#17255A" Foreground="Red" Height="25" Width="115"/>
+                <Label Content="©ProSoft" HorizontalAlignment="Left" Height="25" Margin="10,355,0,0" VerticalAlignment="Top" Width="93" Grid.ColumnSpan="2"/>
+                <Image HorizontalAlignment="Left" Height="59" Margin="56,23,0,0" VerticalAlignment="Top" Width="60" Source="/language.png" Grid.ColumnSpan="2"/>
+                <Image HorizontalAlignment="Left" Height="60" Margin="24,202,0,0" VerticalAlignment="Top" Width="50" Source="/crypted.png" RenderTransformOrigin="-3.181,0.489"/>
             </Grid>
         </TabItem>
 
