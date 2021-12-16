@@ -51,7 +51,7 @@
                 <Button x:Name="SPause" Content="Pause" HorizontalAlignment="Left" Margin="184,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_pause" Grid.Column="3" Background="#18206F" Foreground="Red"/>
                 <Button x:Name="SStop" Content="Stop" HorizontalAlignment="Left" Margin="285,274,0,0" VerticalAlignment="Top" Height="46" Width="72" Click="Button_multiple_stop" Grid.Column="3" Background="#18206F" Foreground="Red"/>
 
-                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow" Grid.ColumnSpan="4" Background="RoyalBlue" Foreground="#BD1E1E">
+                <DataGrid x:Name="SaveGrid" Margin="10,27,374,10" CanUserAddRows="True" ItemsSource="{Binding Save}" SelectedItem="{Binding Path=Saves, Mode=TwoWay}" SelectionUnit="FullRow" Grid.ColumnSpan="4" Background="#18206F" Foreground="#BD1E1E">
                     <DataGrid.Columns>
                         <DataGridTextColumn x:Name="Save_Name" Header="Save_Name" IsReadOnly="True" Binding="{Binding Path=Save_Name}" Width="100"></DataGridTextColumn>
                         <DataGridTextColumn x:Name="Source" Header="Source" IsReadOnly="True" Binding="{Binding Path=Save_Src}" Width="100"></DataGridTextColumn>
@@ -81,8 +81,8 @@
                     </Button.Background>
                 </Button>
                 <CheckBox x:Name="Encrypt" Content="Crypted" Grid.Column="1" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" IsChecked="False" Checked="Encrypt_Checked" Unchecked="Encrypt_Unchecked" Background="#FFF5E2C8" Foreground="#BD1E1E"/>
-                <ListBox x:Name="ListBox" Grid.Column="1" Margin="273,100,10,10" Background="RoyalBlue" Foreground="#BD1E1E"/>
-                <TextBox x:Name="Extension" Grid.Column="1" HorizontalAlignment="Left" Margin="273,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="RoyalBlue" Foreground="Red"/>
+                <ListBox x:Name="ListBox" Grid.Column="1" Margin="273,100,10,10" Background="#18206F" Foreground="#BD1E1E"/>
+                <TextBox x:Name="Extension" Grid.Column="1" HorizontalAlignment="Left" Margin="273,66,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#18206F" Foreground="Red"/>
                 <Button x:Name="add" Content="Add" Grid.Column="1" HorizontalAlignment="Left" Margin="414,66,0,0" VerticalAlignment="Top" Click="ExtensionAdd" Background="#17255A" Foreground="Red" Width="37"/>
                 <Button x:Name="Select" Content="Select" Grid.Column="1" HorizontalAlignment="Left" Margin="472,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Selected_ext" Background="#17255A" Foreground="red" Width="53"/>
                 <Button x:Name="ServerConnect" Content="Server Connect" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="25" Margin="20,309,0,0" VerticalAlignment="Top" Width="95" Click="ServerConnect_Click" Background="#17255A" Foreground="Red"/>
